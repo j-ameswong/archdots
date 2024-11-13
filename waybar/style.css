@@ -1,0 +1,108 @@
+@import "mocha.css";
+
+* {
+    font-family: FiraCode NF;
+    font-size: 12px;
+    min-height: 0;
+}
+
+#waybar {
+background: transparent;
+color: @text;
+margin: 3px 3px;
+}
+
+#window {
+margin-left: 1rem;
+}
+
+#workspaces {
+border-radius: 1rem;
+margin: 5px;
+background-color: rgba(255,255,255,0.1);
+margin-left: 1rem;
+}
+
+#workspaces button {
+color: rgba(255,255,255,0.5);
+border-radius: 1rem;
+padding: 0.4rem;
+}
+
+#workspaces button.active {
+color: white;
+border-radius: 1rem;
+}
+
+#workspaces button:hover {
+color: white;
+border-radius: 1rem;
+}
+
+#custom-music,
+#window
+#tray,
+#backlight,
+#clock,
+#battery,
+#pulseaudio,
+#custom-lock,
+#custom-power {
+background-color: rgba(255,255,255,0.1);
+padding: 0.5rem 1rem;
+margin: 2px 0;
+color: white
+}
+
+#clock {
+/*color: @blue;*/
+border-radius: 0px 1rem 1rem 0px;
+margin-right: 1rem;
+}
+
+#battery {
+/*color: @green;*/
+}
+
+#battery.charging {
+/*color: @green;*/
+}
+
+#battery.warning:not(.charging) {
+color: @red;
+}
+
+#backlight {
+/*color: @yellow;*/
+}
+
+#backlight, #battery {
+border-radius: 0;
+}
+
+#pulseaudio {
+/*color: @maroon;*/
+border-radius: 1rem 0px 0px 1rem;
+margin-left: 1rem;
+}
+
+#custom-music {
+/*color: @mauve;*/
+border-radius: 1rem;
+}
+
+#custom-lock {
+border-radius: 1rem 0px 0px 1rem;
+/*color: @lavender;*/
+}
+
+#custom-power {
+margin-right: 1rem;
+border-radius: 0px 1rem 1rem 0px;
+/*color: @red;*/
+}
+
+#tray {
+margin-right: 1rem;
+border-radius: 1rem;
+}

@@ -2,7 +2,7 @@
 Dotfiles and instructions to make fresh arch installs easier (for me)
 
 !! This is a <strong>very</strong> early work in progress !!
-s
+
 <h2>Setup Overview</h2>
 <ul>
   <li><strong>Bootmanager:</strong> grub</li>

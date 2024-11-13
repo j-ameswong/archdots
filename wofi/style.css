@@ -1,0 +1,81 @@
+window {
+    margin: 0px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Slightly darker background for more contrast */
+    /*box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); *//* Adds a subtle shadow for depth */
+    padding: 10px;
+}
+
+#input {
+margin: 10px;
+border: none;
+color: white;
+border-radius: 10px;
+background-color: rgba(255, 255, 255, 0.1); /* Slight transparency for dark theme */
+padding: 10px;
+font-size: 16px;
+transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#input:focus {
+background-color: rgba(255, 255, 255, 0.2); /* Highlight the input when focused */
+box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+#inner-box {
+margin: 5px;
+border-radius: 20px;
+background-color: transparent;
+}
+
+#outer-box {
+margin: 5px;
+border-radius: 20px;
+background-color: rgba(0, 0, 0, 0.3); /* Slightly darker for distinction */
+}
+
+#scroll {
+margin: 0px;
+border: none;
+background-color: transparent;
+}
+
+#text {
+margin: 5px;
+border-radius: 10px;
+color: white;
+background-color: transparent;
+font-size: 14px;
+}
+
+#entry.activatable #text {
+color: white;
+background-color: transparent;
+}
+
+#entry > * {
+color: white;
+border-radius: 10px;
+}
+
+#entry {
+padding: 10px;
+margin: 5px 0;
+border-radius: 10px;
+transition: background-color 0.3s ease-in-out;
+}
+
+#entry:hover {
+background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect for entries */
+}
+
+#entry:selected {
+background-color: rgba(70, 130, 180, 0.2); /* Highlight for the selected entry (soft blue tone) */
+border: 1px;
+}
+
+#entry:selected #text {
+font-weight: bold;
+color: white;
+}
