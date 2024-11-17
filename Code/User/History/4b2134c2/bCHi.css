@@ -1,0 +1,432 @@
+/* Setting the color I'm going to use throughout*/
+:root {
+  --shefpurple: #3B2BC0;
+}
+
+/* LargER devices like laptops and desktops */
+@media only screen and (min-width: 992px){
+  #wrapper {
+    margin: auto 0;
+    display:flex;
+    flex-wrap: wrap;
+    width: 99%;
+}
+
+/* Move text to right of image in home page */
+.fig {
+    max-width: 500px;
+    width: 45%;
+    margin-right: 2rem;
+}
+
+#wrapper div.item {
+    width: 45%;
+    max-width: 600px;
+    min-height: 570px;
+    transition: max-width 0.3s ease, width 0.3s ease;
+}
+
+#wrapper div.item:hover {
+  width: 46%;
+  max-width: 610px;
+  transition: max-width 0.3s ease, width 0.3s ease;
+}
+}
+
+header {
+    color: var(--shefpurple);
+    font-family: 'Source Sans 3', sans-serif;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+body {
+    background-color: beige;
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 1.1rem;
+    height: 99%;
+    display: block;
+}
+
+/*---------------------------------------------------------------------*/
+/* 
+Navbar modified from 
+https://responsivenavigation.net/examples/simple-toggle/ 
+*/
+
+.navbar {
+  width: 100%;
+  background-color: var(--shefpurple);
+  border-radius: 15px;
+}
+
+ul.simple-toggle {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+ul.simple-toggle li {
+  display: inline-block;
+  border-radius: 15px;
+}
+
+ul.simple-toggle li a {
+  display: block;
+  padding: 15px 10px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+ul.simple-toggle li a:hover {
+  background-color: yellow;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.anchor-link {
+  display: inline-block;
+  text-align: center;
+  padding: 10px 15px;
+  color: white;
+  margin: 2px;
+  float: none;
+}
+
+/* This hides the mobile nav when screen not wide enousgh */
+#mobile-nav {
+  display: none;
+}
+
+@media (max-width:768px) {
+  ul.simple-toggle {
+    display: none;
+  }
+  
+  .anchor-link, #mobile-nav {
+    display: block;
+  }
+
+  ul.open {
+    background-color: var(--shefpurple);
+    border-radius: 15px;
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  
+  ul.open li {
+    display: block;
+    text-align: center;
+    border: 1px white solid;
+  }
+  
+  ul.open li a {
+    display: block;
+    padding: 15px 10px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  ul.open li a:hover {
+    background-color: yellow;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+}
+
+.simple-toggle .current a{
+text-decoration: underline;
+}
+
+.open .current a{
+  text-decoration: underline;
+}
+
+/*---------------------------------------------------------------------*/
+/* The following mostly only used in index.html */
+/* Only top border else line appears below dashed*/
+hr.divider {
+  border: none;
+  border-top: 2px dashed;
+  margin-top: 3%;
+  text-decoration: none;
+}
+
+#home article {
+  margin: 2rem 0 7rem 0;
+  width: 99%;
+  display: block;    
+  flex-wrap: wrap;
+} 
+
+#home article h2 {
+  padding-top: 2%;
+}
+
+section.quiz {
+  margin-top: 1%;
+}
+
+/* This is to make sure the text below img in mobile view*/
+figure.fig {
+    width: 99%;
+    padding: 1%;
+    float: left;
+    margin: 0 auto;
+    font-size: 0.8rem;
+}
+
+/* This is the diamond img */
+img#uos { 
+    max-width: 500px;
+    width: 99%;
+    border-radius: 15px;
+    border: 3px black solid;
+}
+/*---------------------------------------------------------------------*/
+
+.item { /* F&B and parks blocks, including images and text and anchors */
+    display: block;
+    background-color: white;
+    margin: 1rem auto;
+    border: 3px solid;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    padding-bottom: 1%; /* Just to make text not touch border */
+    transition: max-height 0.3s ease, max-width 0.3s ease;
+}
+
+@media (max-width: 992px) {
+  .item {
+      width: 90%; 
+      max-width: 500px; 
+      transition: width 0.3s ease, max-width 0.3s ease;
+  }
+}
+
+.item:hover {
+  width: 91%;
+  max-width: 510px;
+  transition: width 0.3s ease, max-width 0.3s ease;
+}
+
+.item img {
+  width: 100%;
+  object-fit: cover;
+  max-height: 500px;
+}
+
+#picnics .item {
+    height:fit-content;
+}
+
+#picnics .item img {
+  min-height: 250px;
+  max-height: 280px;
+}
+
+
+#quiz .item {
+    height: fit-content;
+    width: 90%;
+    max-width: 600px;
+    transition: max-width 0.3s ease, width 0.3s ease;
+}
+
+#quiz .item:hover {
+  width: 91%;
+  max-width: 620px;
+  transition: max-width 0.3s ease, width 0.3s ease;
+}
+
+#quiz .item img {
+  max-height: 300px;
+  max-width: 720px;
+}
+ 
+
+/*---------------------------------------------------------------------*/
+/* This is for the quiz page */
+section.quizq {
+  margin-top: 3%;
+}
+
+span.ans {
+    background-color: black;
+    color: black;
+}
+
+span.ans:hover {
+    color: white;
+}
+
+span.ans:active{
+    color: white;
+}
+/*---------------------------------------------------------------------*/
+/* This is for contact page */
+h2.contactt {
+  font-size: 2rem;
+  text-decoration: underline;
+}
+
+.left, .right {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.contact-details {
+  width: 95%;
+  margin: auto;
+}
+
+.contact-details div {
+  background-color: white;
+  margin-top: 5%;
+  padding: 5px;
+  width: 99%;
+  border: 3px solid black;
+}
+
+form {
+  margin: auto;
+  width: 99%;
+  padding: .4rem;
+  background-color: var(--shefpurple);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  border: 3px black solid;
+}
+
+label {
+  font-weight: bold;
+  color: white;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 99%;
+  padding: 10px;
+  border: 1px solid beige;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input[type="submit"] {
+  background-color: rgb(250, 238, 2);
+  color: black;
+  padding: 10px;
+  border: none;
+  border-radius: 15px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: rgb(254, 254, 172);
+  color: black;
+}
+
+/*---------------------------------------------------------------------*/
+/* Footer goes here */
+
+footer {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+footer ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+
+footer ol li {
+    display: inline-block;
+    padding: 1%;
+}
+
+img.proof {
+  max-width: 550px;
+  width: 99%;
+}
+
+/*---------------------------------------------------------------------*/
+/* Testing page */
+#testing #wrapper img {
+  width: 80%;
+  padding-top: 2%;
+}
+
+#testing figure {
+  border: 3px solid black;
+}
+
+#mobileview {
+  max-width: 400px;
+}
+
+/*---------------------------------------------------------------------*/
+/* Design page */
+.centeredp {
+  text-align: center;
+  font-weight: bold;
+}
+
+#design figure {
+  width: 100%;
+  text-align: left;
+}
+
+#design img {
+  width: 90%;
+  max-width: 850px;
+}
+
+/*---------------------------------------------------------------------*/
+/* Media queries: */
+/* Large devices (tablets or landscape phones, 768px and up) */
+/*
+@media only screen and (min-width: 768px) {
+
+}
+    div#wrapper div.item {
+        width: 45%;
+        max-width: 600px;
+    }
+
+    div#wrapper body#picnics div.item {
+        min-height: 500px;
+        max-height: 600px;
+        transition: max-height 0.3s ease;
+        transition: max-width 0.3s ease;
+    }
+}
+*/

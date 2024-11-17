@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Cheng An Wong (James)">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body id="design">
+  <header>
+    <h1>UoS Quick Guide - Design</h1>
+  </header>
+
+  <nav class="navbar">
+    <ul class="simple-toggle">
+      <li><a class="anchor-link" href="./index.html">Home</a></li>
+      <li><a class="anchor-link" href="./places.html">Food & Drinks</a></li>
+      <li><a class="anchor-link" href="./picnics.html">Picnic Spots</a></li>
+      <li><a class="anchor-link" href="./quiz.html">Quiz</a></li>
+    </ul>
+  </nav>
+
+  <nav class="navbar" id="mobile-nav">
+    <ul class="open">
+      <li><a class="anchor-link" href="./index.html">Home</a></li>
+      <li><a class="anchor-link" href="./places.html">Food & Drinks</a></li>
+      <li><a class="anchor-link" href="./picnics.html">Picnic Spots</a></li>
+      <li><a class="anchor-link" href="./quiz.html">Quiz</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section>
+      <h2>Introduction</h2>
+      <p>
+          My approach to the design of this website was to create a lightweight 
+          website with minimal clutter. It must be easy to navigate for users, and
+          the information conveyed must be short and concise.
+      </p>
+      <p class="centeredp">~About the colours~</p>
+      <p>    
+          I really wanted to make the website with a 
+          little 'retro' feel, So I went for a beige coloured background and having 
+          thick borders around all of my images. The colour also acts as a blue
+          light filter, making it easier on the reader's eyes. For UI elements, purple 
+          felt appropriate as it is the primary color of the university. Hovered elements
+          are yellow as it is the complement of purple, and makes a rare and unique colour
+          combination.
+      </p>
+      <p class="centeredp">~Why so many places?~</p>
+      <p>
+          I used a lot of places on the F&B and to a lesser extent the Picnic Spots page 
+          to try and demonstrate my use of media queries to toggle the flex display. A minimum width was set to ensure readers
+          could identify seperate sections even on narrow screens like mobile devices.
+      </p>
+    </section>
+
+    <section>
+      <h2>Site Map</h2>
+      <figure class="">
+          <img alt="site map" src="./assets/sitemap.webp">
+      </figure>
+    </section>
+
+    <section>
+      <h2>Design Mock-Ups</h2>
+      <figure>
+          <img alt="design mock up of the home page for mobile and desktop" src="./assets/mockhome.webp">
+          <figcaption>Appearance of home page</figcaption>
+      </figure>
+
+      <figure>
+          <img alt="design mock up of a content page for mobile and desktop" src="./assets/mockimg.webp">
+          <figcaption>Appearance of pages with content</figcaption>
+      </figure>
+
+      <p class="centeredp">~Breakpoints & Tweakpoints~</p>
+      <p>
+          Time constraints limited the scope of the project's breakpoints. As this website is mobile 
+          first, one breakpoint was set at a common breakpoint of 992px for desktop. And a tweakpoint
+          at 768px to accomodate tablet users. When the screen width exceeds the tweakpoint at 768px,
+          the navbar changes to the inline mode. This is to prevent the navbar from taking up valuable real
+          estate. Past the breakpoint at 992px, the main page changes to accomodate all the information 
+          in one view without needing to scroll down. In addition to that, the image containers in the F&B 
+          and Picnics page are each shortened to a width of 45% to allow 2 to appear side by side. This both prevents
+          the images from getting too big and also allows more info to be obtained faster by the 
+          user.
+      </p>
+    </section>
+
+    <section>
+      <h2>Menu System</h2>
+      <p>
+          The navbar menu system was heavily modified from 
+          <a href="https://responsivenavigation.net/examples/simple-toggle/ ">simple-toggle</a>. 
+          I chose to avoid the other options because of the use of javascript, and my 
+          reluctance to use something I do not fully understand. This one was perfect 
+          as I did not have many pages and most of them could be placed in the footer.
+          In mobile view, clicking is really easy and in desktop mode, the navbar becomes inline
+          to increase space for the main content.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <ol>
+      <li><a href="./contact.html">Contact</a></li>
+      <li><a href="./accessibility.html">Accessibility</a></li>
+      <li><a href="./legal.html">Legal & Security</a></li>
+      <li><a href="./design.html">Design</a></li>
+      <li><a href="./testing.html">Testing</a></li>
+    </ol>
+  </footer>
+</body>
+</html>

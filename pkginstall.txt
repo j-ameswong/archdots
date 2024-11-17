@@ -20,9 +20,6 @@ grub
 gtk2
 gvfs
 htop
-hyprlock
-hyprpaper
-hyprpicker
 imagemagick
 intltool
 kate
@@ -43,6 +40,7 @@ noto-fonts-cjk
 noto-fonts-emoji
 ntfs-3g
 nvidia-dkms
+obs-studio
 orca
 otf-firamono-nerd
 pavucontrol
@@ -51,6 +49,8 @@ pulseaudio
 python
 python-lsp-server
 python-pip
+qt5ct
+qt6ct
 reflector
 scdoc
 slurp
@@ -73,6 +73,7 @@ vlc
 waybar
 wget
 which
+wireplumber
 wl-clipboard
 wofi
 xdg-desktop-portal

@@ -1,0 +1,25 @@
+2024-11-14 23:25:47.761 [info] Started local extension host with pid 2312.
+2024-11-14 23:25:48.264 [info] Settings Sync: Updating authentication providers. Authentication Providers from store: [{"id":"github","scopes":["user:email"]},{"id":"microsoft","scopes":["openid","profile","email","offline_access"]}]
+2024-11-14 23:25:48.265 [info] Settings Sync: Authentication providers updated ["github","microsoft"]
+2024-11-14 23:25:48.689 [info] Settings Sync: Updating authentication providers. Authentication Providers from store: [{"id":"github","scopes":["user:email"]},{"id":"microsoft","scopes":["openid","profile","email","offline_access"]}]
+2024-11-14 23:25:48.690 [info] Settings Sync: Authentication providers updated ["github","microsoft"]
+2024-11-14 23:25:50.455 [info] [perf] Render performance baseline is 21ms
+2024-11-15 04:10:02.843 [warning] [File Watcher] Watcher shutdown because watched path got deleted (path: /home/contessa/Assessment1)
+2024-11-15 04:10:02.843 [error] [File Watcher (node.js)] Failed to watch /home/contessa/Assessment1/.git/refs/remotes/origin/master for changes using fs.watch() (Error: ENOENT: no such file or directory, watch '/home/contessa/Assessment1/.git/refs/remotes/origin/master')
+2024-11-15 04:10:03.859 [error] [Extension Host] Error: spawn git ENOENT
+	at ChildProcess._handle.onexit (node:internal/child_process:286:19)
+	at onErrorNT (node:internal/child_process:484:16)
+	at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+2024-11-15 04:10:03.861 [error] [Extension Host] Error: Unexpected SIGPIPE
+	at process.<anonymous> (file:///opt/visual-studio-code/resources/app/out/bootstrap-fork.js:3:11831)
+	at process.emit (node:events:519:28)
+2024-11-15 04:10:04.863 [error] spawn git ENOENT: Error: spawn git ENOENT
+	at ChildProcess._handle.onexit (node:internal/child_process:286:19)
+	at onErrorNT (node:internal/child_process:484:16)
+	at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+2024-11-15 04:10:21.713 [info] Started local extension host with pid 47751.
+2024-11-15 04:10:21.964 [info] Settings Sync: Updating authentication providers. Authentication Providers from store: [{"id":"github","scopes":["user:email"]},{"id":"microsoft","scopes":["openid","profile","email","offline_access"]}]
+2024-11-15 04:10:21.964 [info] Settings Sync: Authentication providers updated ["github","microsoft"]
+2024-11-15 04:10:22.348 [info] Settings Sync: Updating authentication providers. Authentication Providers from store: [{"id":"github","scopes":["user:email"]},{"id":"microsoft","scopes":["openid","profile","email","offline_access"]}]
+2024-11-15 04:10:22.348 [info] Settings Sync: Authentication providers updated ["github","microsoft"]
+2024-11-15 04:10:24.388 [info] [perf] Render performance baseline is 21ms

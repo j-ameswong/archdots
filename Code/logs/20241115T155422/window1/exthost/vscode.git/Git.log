@@ -1,0 +1,91 @@
+2024-11-15 15:54:23.991 [info] [main] Log level: Info
+2024-11-15 15:54:23.991 [info] [main] Validating found git in: "git"
+2024-11-15 15:54:23.991 [info] [main] Using git "2.47.0" from "git"
+2024-11-15 15:54:23.991 [info] [Model][doInitialScan] Initial repository scan started
+2024-11-15 15:54:23.991 [info] > git rev-parse --show-toplevel [3ms]
+2024-11-15 15:54:23.991 [info] > git rev-parse --git-dir --git-common-dir [2ms]
+2024-11-15 15:54:23.991 [info] [Model][openRepository] Opened repository: /home/contessa/archdots
+2024-11-15 15:54:23.992 [info] > git config --get commit.template [2ms]
+2024-11-15 15:54:24.001 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [5ms]
+2024-11-15 15:54:24.002 [info] > git rev-parse --show-toplevel [2ms]
+2024-11-15 15:54:24.006 [info] > git rev-parse --show-toplevel [1ms]
+2024-11-15 15:54:24.017 [info] > git status -z -uall [7ms]
+2024-11-15 15:54:24.017 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [4ms]
+2024-11-15 15:54:24.029 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [5ms]
+2024-11-15 15:54:24.032 [info] > git rev-parse --show-toplevel [15ms]
+2024-11-15 15:54:24.036 [info] > git config --get commit.template [8ms]
+2024-11-15 15:54:24.037 [info] > git rev-parse --show-toplevel [2ms]
+2024-11-15 15:54:24.038 [info] > git config --local branch.main.vscode-merge-base [5ms]
+2024-11-15 15:54:24.070 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/origin/main refs/remotes/origin/main [30ms]
+2024-11-15 15:54:24.098 [info] > git merge-base refs/heads/main refs/remotes/origin/main [24ms]
+2024-11-15 15:54:24.102 [info] > git rev-parse --show-toplevel [36ms]
+2024-11-15 15:54:24.102 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [39ms]
+2024-11-15 15:54:24.106 [info] > git diff --name-status -z --diff-filter=ADMR adafd38476013f7d87c3027d542b65e2a95b18e6...refs/remotes/origin/main [4ms]
+2024-11-15 15:54:24.107 [info] > git rev-parse --show-toplevel [1ms]
+2024-11-15 15:54:24.117 [info] > git status -z -uall [6ms]
+2024-11-15 15:54:24.117 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [4ms]
+2024-11-15 15:54:24.119 [info] > git rev-parse --show-toplevel [3ms]
+2024-11-15 15:54:24.128 [info] > git rev-parse --show-toplevel [1ms]
+2024-11-15 15:54:24.132 [info] > git rev-parse --show-toplevel [1ms]
+2024-11-15 15:54:24.134 [info] [Model][doInitialScan] Initial repository scan completed - repositories (1), closed repositories (0), parent repositories (0), unsafe repositories (0)
+2024-11-15 15:54:24.242 [info] > git fetch [257ms]
+2024-11-15 15:54:24.257 [info] > git config --get commit.template [10ms]
+2024-11-15 15:54:24.257 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [7ms]
+2024-11-15 15:54:24.263 [info] > git status -z -uall [4ms]
+2024-11-15 15:54:24.264 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [1ms]
+2024-11-15 15:54:24.352 [info] > git show --textconv :README.md [8ms]
+2024-11-15 15:54:24.353 [info] > git ls-files --stage -- /home/contessa/archdots/README.md [2ms]
+2024-11-15 15:54:24.360 [info] > git cat-file -s de41873c4ead8802ec2dbb157e6e23658d5163a1 [1ms]
+2024-11-15 15:54:24.498 [info] > git check-ignore -v -z --stdin [0ms]
+2024-11-15 15:54:25.384 [info] > git config --get commit.template [7ms]
+2024-11-15 15:54:25.385 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2024-11-15 15:54:25.400 [info] > git status -z -uall [9ms]
+2024-11-15 15:54:25.401 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [3ms]
+2024-11-15 15:54:25.479 [info] > git ls-files --stage -- /home/contessa/archdots/README.md [1ms]
+2024-11-15 15:54:25.486 [info] > git cat-file -s de41873c4ead8802ec2dbb157e6e23658d5163a1 [2ms]
+2024-11-15 15:54:25.494 [info] > git show --textconv :README.md [2ms]
+2024-11-15 15:54:40.399 [info] [main] Log level: Info
+2024-11-15 15:54:40.399 [info] [main] Validating found git in: "git"
+2024-11-15 15:54:40.399 [info] [main] Using git "2.47.0" from "git"
+2024-11-15 15:54:40.399 [info] [Model][doInitialScan] Initial repository scan started
+2024-11-15 15:54:40.399 [info] > git rev-parse --show-toplevel [1ms]
+2024-11-15 15:54:40.404 [info] > git rev-parse --git-dir --git-common-dir [1ms]
+2024-11-15 15:54:40.414 [info] [Model][openRepository] Opened repository: /home/contessa/Documents/Projects/com1008/Assessment1
+2024-11-15 15:54:40.423 [info] > git config --get commit.template [4ms]
+2024-11-15 15:54:40.424 [info] > git rev-parse --show-toplevel [2ms]
+2024-11-15 15:54:40.431 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [4ms]
+2024-11-15 15:54:40.431 [info] > git rev-parse --show-toplevel [1ms]
+2024-11-15 15:54:40.433 [info] [Model][doInitialScan] Initial repository scan completed - repositories (1), closed repositories (0), parent repositories (0), unsafe repositories (0)
+2024-11-15 15:54:40.442 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [2ms]
+2024-11-15 15:54:40.459 [info] > git status -z -uall [22ms]
+2024-11-15 15:54:40.480 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [11ms]
+2024-11-15 15:54:40.491 [info] > git config --local branch.master.vscode-merge-base [4ms]
+2024-11-15 15:54:40.491 [warning] [Git][config] git config failed: Failed to execute git
+2024-11-15 15:54:40.497 [info] > git config --get commit.template [18ms]
+2024-11-15 15:54:40.530 [info] > git reflog master --grep-reflog=branch: Created from *. [33ms]
+2024-11-15 15:54:40.555 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [22ms]
+2024-11-15 15:54:40.555 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2024-11-15 15:54:40.555 [warning] [Repository][getDefaultBranch] Failed to get default branch details: Failed to execute git.
+2024-11-15 15:54:40.559 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [32ms]
+2024-11-15 15:54:40.561 [info] > git merge-base refs/heads/master refs/remotes/origin/master [2ms]
+2024-11-15 15:54:40.602 [info] > git diff --name-status -z --diff-filter=ADMR f6ededb53a39ae2c556fddff29fde5f918c49f3e...refs/remotes/origin/master [37ms]
+2024-11-15 15:54:40.611 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [1ms]
+2024-11-15 15:54:40.613 [info] > git status -z -uall [7ms]
+2024-11-15 15:54:40.754 [info] > git show --textconv :design.html [3ms]
+2024-11-15 15:54:40.755 [info] > git ls-files --stage -- /home/contessa/Documents/Projects/com1008/Assessment1/design.html [1ms]
+2024-11-15 15:54:40.759 [info] > git cat-file -s 5d1e04bfa7a332d178fa6c2ee94355187bcdf88c [1ms]
+2024-11-15 15:54:40.853 [info] > git fetch [439ms]
+2024-11-15 15:54:40.853 [info] Missing or invalid credentials.
+Skip silent fetch commands
+Missing or invalid credentials.
+Skip silent fetch commands
+remote: Repository not found.
+fatal: Authentication failed for 'https://github.com/ShadowPlagueXx/webassess1.git/'
+2024-11-15 15:54:40.865 [info] > git config --get commit.template [5ms]
+2024-11-15 15:54:40.866 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [1ms]
+2024-11-15 15:54:40.888 [info] > git status -z -uall [17ms]
+2024-11-15 15:54:40.888 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [11ms]
+2024-11-15 15:54:40.929 [info] > git check-ignore -v -z --stdin [1ms]
+2024-11-15 15:54:41.610 [info] > git ls-files --stage -- /home/contessa/Documents/Projects/com1008/Assessment1/design.html [2ms]
+2024-11-15 15:54:41.616 [info] > git cat-file -s 5d1e04bfa7a332d178fa6c2ee94355187bcdf88c [2ms]
+2024-11-15 15:54:41.623 [info] > git show --textconv :design.html [2ms]

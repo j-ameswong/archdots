@@ -1,0 +1,9 @@
+{
+    "workbench.colorTheme": "Tomorrow Night Blue",
+    "editor.fontFamily": "'FiraMono Nerd Font Mono'",
+    "editor.fontSize": 16,
+    "explorer.confirmDelete": false,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "git.autofetch": true
+}

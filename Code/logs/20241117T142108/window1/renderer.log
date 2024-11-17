@@ -1,0 +1,16 @@
+2024-11-17 14:21:09.478 [info] Started local extension host with pid 5640.
+2024-11-17 14:21:10.476 [info] Settings Sync: Updating due to initialize
+2024-11-17 14:21:10.476 [info] Settings Sync: Updating authentication providers. Authentication Providers from store: [{"id":"github","scopes":["user:email"]},{"id":"microsoft","scopes":["openid","profile","email","offline_access"]}]
+2024-11-17 14:21:10.476 [info] Settings Sync: Authentication providers updated ["github","microsoft"]
+2024-11-17 14:21:12.985 [info] [perf] Render performance baseline is 21ms
+2024-11-17 14:21:14.133 [error] Error: Unable to read file '/home/contessa/archdots/grub/themes/bsol' (Error: Unable to resolve nonexistent file '/home/contessa/archdots/grub/themes/bsol')
+    at Pnt.F (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3088:69674)
+    at Pnt.D (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3088:69499)
+    at async Gnt.M (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3089:9119)
+    at async Gnt.readStream (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3089:8894)
+    at async Pde.Db (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:1275:11960)
+    at async Pde.resolve (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:1275:10435)
+    at async Unt.W (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:3089:5752)
+    at async _Ue.jb (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:1941:16380)
+    at async Promise.all (index 1)
+    at async Ho.C (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:516:62556)

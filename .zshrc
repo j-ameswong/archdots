@@ -16,7 +16,7 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 alias pkg_backup="pacman -Qqe > pkglist.txt"
 
 pkg_install() {
-	comm -12 <(pacman -Slq | sort) <(sort pkglist.txt) > pkginstall.txt
+	comm -12 <(pacman -Slq | sort) <(sort ./pkglist.txt) > ./pkginstall.txt
 }
 
 alias neofetch="fastfetch"

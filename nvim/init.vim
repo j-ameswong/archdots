@@ -19,18 +19,22 @@ set clipboard=unnamedplus   " using system clipboard
 filetype plugin on
 set cursorline              " highlight current cursorline
 set ttyfast                 " Speed up scrolling in Vim
+set termguicolors           " enable term colors
 " set spell                 " enable spell check (may need to download language package)
 " set noswapfile            " disable creating swap file
 " set backupdir=~/.cache/vim " Directory to store backup files.
 "
-"
-call plug#begin("~/.vim/plugged")
+call plug#begin("~/.config/nvim/plugged")
  Plug 'dracula/vim'
+ Plug 'neovim/nvim-lspconfig'
  Plug 'ryanoasis/vim-devicons'
  Plug 'SirVer/ultisnips'
+ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
  Plug 'honza/vim-snippets'
  Plug 'scrooloose/nerdtree'
  Plug 'preservim/nerdcommenter'
  Plug 'mhinz/vim-startify'
  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
+
+lua require('treesitter')

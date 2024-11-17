@@ -1,0 +1,2 @@
+2024-11-15 04:10:02.845 [warning] [File Watcher] Watcher shutdown because watched path got deleted (path: /home/contessa/Assessment1)
+2024-11-15 04:10:02.845 [error] [File Watcher (node.js)] Failed to watch /home/contessa/Assessment1/.git/refs/remotes/origin/master for changes using fs.watch() (Error: ENOENT: no such file or directory, watch '/home/contessa/Assessment1/.git/refs/remotes/origin/master')

@@ -1,0 +1,16 @@
+2024-11-15 11:32:05.672 [info] Started local extension host with pid 2330.
+2024-11-15 11:32:06.565 [info] Settings Sync: Updating authentication providers. Authentication Providers from store: [{"id":"github","scopes":["user:email"]},{"id":"microsoft","scopes":["openid","profile","email","offline_access"]}]
+2024-11-15 11:32:06.566 [info] Settings Sync: Authentication providers updated []
+2024-11-15 11:32:09.277 [info] [perf] Render performance baseline is 29ms
+2024-11-15 11:56:28.515 [error] AbstractContextKeyService has been disposed: Error: AbstractContextKeyService has been disposed
+    at Las.contextMatchesRules (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:1316:56485)
+    at Uj.createActionGroups (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:408:106563)
+    at jie.getActions (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:408:108717)
+    at rr (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:408:97021)
+    at g (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:408:112917)
+    at vZ.value (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:408:113199)
+    at FSe.B (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:747)
+    at FSe.fire (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:965)
+    at FSe.resume (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:1999)
+    at vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:30:2276
+2024-11-15 12:01:32.123 [warning] [backup tracker] suspended, ignoring unregister event file:///home/contessa/Documents/Assessment1/.git/COMMIT_EDITMSG 
