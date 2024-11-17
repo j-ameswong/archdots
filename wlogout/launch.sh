@@ -16,7 +16,8 @@ if [[ "$?" == 0 ]]; then
     elif [[ "$1" == 'hibernate' ]]; then
         systemctl systemctl hibernate
     elif [[ "$1" == 'lock' ]]; then
-        ~/.scripts/lock
+        sleep 0.5s
+        hyprlock --grace 0
     elif [[ "$1" == 'suspend' ]]; then
         sleep 0.5s
         systemctl suspend

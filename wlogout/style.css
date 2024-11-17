@@ -1,6 +1,6 @@
 /** ********** Fonts ********** **/
 * {
-    font-family: "FiraMono Nerd Font", "Lato", sans-serif;
+    font-family: Monospace;
     font-size: 15px;
     font-weight: bold;
 }
@@ -12,20 +12,21 @@ window {
 
 /** ********** Buttons ********** **/
 button {
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.7);
     color: rgba(255,255,255,0.9);
     border: 1px solid rgba(255,255,255,0.2);
-    /*border-radius: 20px;*/
+    border-radius: 20px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 35%;
     transition: all 0.2s ease-in-out;
+    margin: 2px;
 }
 
 button:focus,
 button:active {
     color: #ffffff;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(50,50,50,0.3);
     outline-style: none;
 }
 

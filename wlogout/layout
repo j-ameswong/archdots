@@ -1,19 +1,19 @@
 {
   "label": "lock",
   "text": "Lock",
-  "action" : "swaylock",
+  "action" : "hyprlock",
   "keybind": "l"
 }
 {
   "label": "hibernate",
   "text": "Hibernate",
-  "action": "systemctl hibernate",
+  "action": "",
   "keybind": "h"
 }
 {
   "label": "suspend",
   "text": "Suspend",
-  "action": "systemctl suspend",
+  "action": "sleep1; systemctl suspend",
   "keybind": "s"
 }
 {

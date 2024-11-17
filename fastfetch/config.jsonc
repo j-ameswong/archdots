@@ -61,7 +61,7 @@
         },
         {
             "type": "shell",
-            "key": "└ └",
+            "key": "│ ├",
             "keyColor": "yellow"
         },
         {

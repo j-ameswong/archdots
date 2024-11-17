@@ -12,6 +12,7 @@ ffmpegthumbnailer
 firefox
 firewalld
 font-manager
+fuzzel
 git
 go
 grim
@@ -30,6 +31,7 @@ libva-nvidia-driver
 linux
 linux-firmware
 linux-headers
+ly
 mako
 man-db
 man-pages
@@ -41,6 +43,7 @@ noto-fonts-cjk
 noto-fonts-emoji
 ntfs-3g
 nvidia-dkms
+orca
 otf-firamono-nerd
 pavucontrol
 pinta
@@ -51,6 +54,7 @@ python-pip
 reflector
 scdoc
 slurp
+steam
 sudo
 terminus-font
 texinfo
@@ -59,6 +63,7 @@ thunar
 thunar-volman
 tk
 tlp
+tree
 ttf-fantasque-sans-mono
 ttf-lato
 ttf-roboto-mono-nerd
@@ -72,4 +77,5 @@ wl-clipboard
 wofi
 xdg-desktop-portal
 xdg-user-dirs
+zip
 zsh

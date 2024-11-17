@@ -1,9 +1,13 @@
+* {
+    font: MonoSpace;
+}
+
 window {
     margin: 0px;
     border: 2px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     background-color: rgba(0, 0, 0, 0.5); /* Slightly darker background for more contrast */
-    /*box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); *//* Adds a subtle shadow for depth */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);/* Adds a subtle shadow for depth */
     padding: 10px;
 }
 
@@ -63,7 +67,7 @@ border-radius: 10px;
 padding: 10px;
 margin: 5px 0;
 border-radius: 10px;
-transition: background-color 0.3s ease-in-out;
+transition: background-color 0.1s ease-in-out;
 }
 
 #entry:hover {
