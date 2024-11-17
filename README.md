@@ -61,3 +61,13 @@ Dotfiles and instructions to make fresh arch installs easier (for me)
       <li><strong>QT Theme:</strong> darker2</li>
     </ul>
     <li><strong>Code Editor:</strong> VSCode/nvim/kate</li>
+
+<h2>Setup Guide (Brief)</h2>
+
+1. Follow the <a href="https://wiki.archlinux.org/title/Installation_guide">Arch Wiki</a>
+and DO NOT skip over any steps, especially the <a href="https://wiki.archlinux.org/title/Arch_boot_process#Boot_loader">bootloader</a>.
+
+2. This is a great <a href="https://github.com/3rfaan/arch-everforest">guide to setup Arch initially</a> until you get to the Desktop Environment.
+
+3. Run <code>sudo pacman -S - < pkginstall.txt</code> or <code>yay -S - < pkginstall.txt</code> if you have access to the AUR.
+    

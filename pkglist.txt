@@ -77,6 +77,7 @@ thunar
 thunar-volman
 tk
 tlp
+tmux
 tree
 ttf-fantasque-sans-mono
 ttf-lato
@@ -88,6 +89,7 @@ vim-plug
 visual-studio-code-bin
 vlc
 waybar
+webcord
 wget
 which
 wireplumber

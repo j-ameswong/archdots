@@ -63,6 +63,7 @@ thunar
 thunar-volman
 tk
 tlp
+tmux
 tree
 ttf-fantasque-sans-mono
 ttf-lato

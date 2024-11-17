@@ -14,9 +14,14 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 alias pkg_backup="pacman -Qqe > pkglist.txt"
-
 pkg_install() {
-	comm -12 <(pacman -Slq | sort) <(sort ./pkglist.txt) > ./pkginstall.txt
+    (comm -12 <(pacman -Slq | sort) <(sort pkglist.txt)) > pkginstall.txt
+}
+
+wipe_clipboard() {
+    cliphist wipe
+    rm ~/.cache/cliphist/db
 }
 
 alias neofetch="fastfetch"
+alias cliphistwipe = "wipe_clipboard"
