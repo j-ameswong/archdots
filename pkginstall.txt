@@ -8,6 +8,10 @@ cliphist
 e2fsprogs
 efibootmgr
 fastfetch
+fcitx5
+fcitx5-chinese-addons
+fcitx5-configtool
+fcitx5-pinyin-zhwiki
 ffmpegthumbnailer
 firefox
 firewalld
@@ -62,6 +66,7 @@ texlab
 thunar
 thunar-volman
 tk
+tldr
 tlp
 tmux
 tree

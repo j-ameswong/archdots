@@ -39,6 +39,7 @@ Dotfiles and instructions to make fresh arch installs easier (for me)
       <li><strong>Taskbar:</strong> waybar</li>
       <li><strong>Network:</strong> Network Manager</li>
       <li><strong>Clipboard:</strong> wl-clipboard + cliphist + fuzzel</li>
+      <li><strong>Chinese Input:</strong> fcitx5 + fcitx5-chinese-addons + fcitx5-configtool</li>
     </ul>
     <li><strong>Image/Video:</strong></li>
     <ul>
@@ -69,5 +70,7 @@ and DO NOT skip over any steps, especially the <a href="https://wiki.archlinux.o
 
 2. This is a great <a href="https://github.com/3rfaan/arch-everforest">guide to setup Arch initially</a> until you get to the Desktop Environment.
 
-3. Run <code>sudo pacman -S - < pkginstall.txt</code> or <code>yay -S - < pkginstall.txt</code> if you have access to the AUR.
-    
+3. Run <code>sudo pacman -S - < pkginstall.txt</code> or <code>yay -S - < pkglist.txt</code> if you have access to the AUR.
+<br>Note: passing <code>pkglist.txt</code> to yay will install both AUR and core packages. This is the preferred option.
+
+4. 

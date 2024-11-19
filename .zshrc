@@ -23,5 +23,10 @@ wipe_clipboard() {
     rm ~/.cache/cliphist/db
 }
 
+# save history
+HISTFILE=.zsh_history
+SAVEHIST=1
+HISTSIZE=250
+
 alias neofetch="fastfetch"
-alias cliphistwipe = "wipe_clipboard"
+alias cliphistwipe="wipe_clipboard"
