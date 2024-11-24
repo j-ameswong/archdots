@@ -12,7 +12,7 @@ Dotfiles and instructions to make fresh arch installs easier (for me)
         </ul>
       <li><strong>Kernel:</strong> linux</li>
       <li><strong>Graphics Driver:</strong> nvidia-dkms (MUST install <a href="https://gitlab.com/asus-linux/supergfxctl">supergfxctl</a> and set to HYBRID mode)</li>
-      <li><strong>Audio:</strong> pulseaudio + pipewire</li>
+      <li><strong>Audio:</strong> pipewire /w pulseaudio frontend</li>
       <li>
       <strong>Partitions:</strong> 
       <ul>
@@ -37,13 +37,15 @@ Dotfiles and instructions to make fresh arch installs easier (for me)
       <li><strong>Notifications:</strong> mako</li>
       <li><strong>Wallpaper:</strong> hyprpaper</li>
       <li><strong>Taskbar:</strong> waybar</li>
-      <li><strong>Network:</strong> Network Manager</li>
+      <li><strong>Network:</strong> Network Manager w/ nmtui</li>
+      <li><strong>Bluetooth:</strong> bluetui</li>
       <li><strong>Clipboard:</strong> wl-clipboard + cliphist + fuzzel</li>
       <li><strong>Chinese Input:</strong> fcitx5 + fcitx5-chinese-addons + fcitx5-configtool</li>
     </ul>
     <li><strong>Image/Video:</strong></li>
     <ul>
       <li><strong>Image Viewer:</strong> qimgv</li>
+      <li><strong>Screenshot:</strong> grim + slurp</li>
       <li><strong>Image Editor:</strong> pinta</li>
       <li><strong>Video Player:</strong> vlc</li>
       <li><strong>Video Recorder:</strong> obs-studio</li>
@@ -60,6 +62,7 @@ Dotfiles and instructions to make fresh arch installs easier (for me)
       </li>
       <li><strong>GTK Theme:</strong> adw-gtk3-dark</li>
       <li><strong>QT Theme:</strong> darker2</li>
+      <li><strong>Cursor:</strong> adwaita</li>
     </ul>
     <li><strong>Code Editor:</strong> VSCode/nvim/kate</li>
 

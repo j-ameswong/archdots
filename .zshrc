@@ -23,10 +23,22 @@ wipe_clipboard() {
     rm ~/.cache/cliphist/db
 }
 
+if ls --color -d . >/dev/null 2>&1; then  # GNU ls
+  export COLUMNS  # Remember columns for subprocesses.
+  eval "$(dircolors)"
+  function ls {
+    command ls -F -h --color=always -v --author --time-style=long-iso -C "$@" | less -R -X -F
+  }
+  alias ll='ls -l'
+  alias l='ls -l -a'
+fi
+
 # save history
-HISTFILE=.zsh_history
+HISTFILE=/home/contessa/.zsh_history
 SAVEHIST=1
 HISTSIZE=250
 
 alias neofetch="fastfetch"
 alias cliphistwipe="wipe_clipboard"
+alias IP="ip -c addr"
+alias please="sudo"
