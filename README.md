@@ -26,7 +26,7 @@ Dotfiles and instructions to make fresh arch installs easier (for me)
   <h3 style="text-decoration: underline">Desktop Environment</h3>
     <ul>
     <li><strong>Window Manager:</strong> <a href="https://github.com/hyprwm/Hyprland">Hyprland (Wayland)</a></li>
-    <li><strong>Login Manager:</strong> Ly</li>
+    <li><strong>Login Manager:</strong> SDDM /w <code>eucalyptus-drop</code> theme</li>
     <li><strong>Shell:</strong> zsh</li>
     <li><strong>Utility:</strong></li>
     <ul>
@@ -61,7 +61,7 @@ Dotfiles and instructions to make fresh arch installs easier (for me)
         </ul>
       </li>
       <li><strong>GTK Theme:</strong> adw-gtk3-dark</li>
-      <li><strong>QT Theme:</strong> darker2</li>
+      <li><strong>QT Theme:</strong> kvantum-dark</li>
       <li><strong>Cursor:</strong> adwaita</li>
     </ul>
     <li><strong>Code Editor:</strong> VSCode/nvim/kate</li>

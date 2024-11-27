@@ -25,7 +25,7 @@
 {
   "label": "logout",
   "text": "Logout",
-  "action": "sleep1; hyprctl dispatch exit",
+  "action": "sleep1; uwsm stop",
   "keybind": "t"
 }
 {

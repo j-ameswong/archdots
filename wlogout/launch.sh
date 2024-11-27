@@ -22,7 +22,7 @@ if [[ "$?" == 0 ]]; then
         sleep 0.5s
         systemctl suspend
     elif [[ "$1" == 'logout' ]]; then
-        hyprctl dispatch exit none
+        uwsm exit
     fi
 else
     exit

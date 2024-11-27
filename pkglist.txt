@@ -1,4 +1,5 @@
 adw-gtk-theme
+aircrack-ng
 aquamarine-git
 base
 base-devel
@@ -9,6 +10,7 @@ brightnessctl
 btop
 clang
 cliphist
+dmidecode
 e2fsprogs
 efibootmgr
 fastfetch
@@ -41,6 +43,8 @@ intltool
 jdk17-openjdk
 kate
 kitty
+kvantum
+kvantum-qt5
 libva-nvidia-driver
 linux
 linux-firmware
@@ -48,7 +52,6 @@ linux-headers
 lolcat
 lshw
 luarocks
-ly
 mako
 man-db
 man-pages
@@ -74,8 +77,10 @@ python-pip
 qimgv
 qt5ct
 qt6ct
+qtcreator
 reflector
 scdoc
+sddm-git
 slurp
 steam
 sudo
@@ -85,6 +90,7 @@ texinfo
 texlab
 thunar
 thunar-volman
+timeshift
 tk
 tldr
 tlp
@@ -96,6 +102,7 @@ ttf-roboto-mono-nerd
 tumbler
 unimatrix-git
 unzip
+uwsm
 vim-plug
 visual-studio-code-bin
 vlc
@@ -104,12 +111,14 @@ webcord
 wget
 which
 wireplumber
+wireshark-qt
 wl-clipboard
 wlogout
 wofi
 xdg-desktop-portal
 xdg-desktop-portal-hyprland-git
 xdg-user-dirs
+xorg-xhost
 yay
 yay-debug
 zip

@@ -11,8 +11,17 @@ return {
         opts = function(_, opts)
             local cmp = require("cmp")
             opts.mapping = vim.tbl_deep_extend("force", opts.mapping, {
-                ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-                ["<CR>"] = cmp.config.disable,
+                ["<C-q>"] = cmp.mapping.confirm({ select = true }),
+                -- ["<C-R>"] = cmp.config.disable,
+            })
+        end,
+    },
+
+    {
+        "atiladefreitas/dooing",
+        config = function()
+            require("dooing").setup({
+                -- your custom config here (optional)
             })
         end,
     },

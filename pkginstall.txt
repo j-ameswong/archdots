@@ -1,4 +1,5 @@
 adw-gtk-theme
+aircrack-ng
 base
 base-devel
 bluez
@@ -7,6 +8,7 @@ brightnessctl
 btop
 clang
 cliphist
+dmidecode
 e2fsprogs
 efibootmgr
 fastfetch
@@ -31,6 +33,8 @@ intltool
 jdk17-openjdk
 kate
 kitty
+kvantum
+kvantum-qt5
 libva-nvidia-driver
 linux
 linux-firmware
@@ -38,7 +42,6 @@ linux-headers
 lolcat
 lshw
 luarocks
-ly
 mako
 man-db
 man-pages
@@ -60,6 +63,7 @@ python-lsp-server
 python-pip
 qt5ct
 qt6ct
+qtcreator
 reflector
 scdoc
 slurp
@@ -70,6 +74,7 @@ texinfo
 texlab
 thunar
 thunar-volman
+timeshift
 tk
 tldr
 tlp
@@ -85,9 +90,11 @@ waybar
 wget
 which
 wireplumber
+wireshark-qt
 wl-clipboard
 wofi
 xdg-desktop-portal
 xdg-user-dirs
+xorg-xhost
 zip
 zsh
