@@ -30,7 +30,7 @@ Dotfiles and instructions to make fresh arch installs easier (for me)
     <li><strong>Shell:</strong> zsh</li>
     <li><strong>Utility:</strong></li>
     <ul>
-      <li><strong>File Manager:</strong> thunar</li>
+      <li><strong>File Manager:</strong> thunar & ranger</li>
       <li><strong>Terminal Emulator:</strong> kitty</li>
       <li><strong>File Launcher:</strong> fuzzel</li>
       <li><strong>Authentication Agent:</strong> hyprpolkitagent</li>
