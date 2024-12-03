@@ -95,7 +95,7 @@
     },
     "custom/lock": {
         "tooltip": false,
-        "on-click": "sh -c '(sleep 0.5s; hyprlock --grace 0)' & disown",
+        "on-click": "sleep 0.5s; hyprlock",
         "format": "",
     },
     "custom/power": {

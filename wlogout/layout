@@ -7,13 +7,13 @@
 {
   "label": "hibernate",
   "text": "Hibernate",
-  "action": "",
+  "action": "sleep 0.5; systemctl hibernate",
   "keybind": "h"
 }
 {
   "label": "suspend",
   "text": "Suspend",
-  "action": "sleep1; systemctl suspend",
+  "action": "sleep 0.5; systemctl suspend",
   "keybind": "s"
 }
 {
@@ -25,7 +25,7 @@
 {
   "label": "logout",
   "text": "Logout",
-  "action": "sleep1; uwsm stop",
+  "action": "sleep 0.5; hyprctl dispatch exit",
   "keybind": "t"
 }
 {
