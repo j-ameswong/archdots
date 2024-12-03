@@ -29,6 +29,7 @@ go
 grim
 grub
 gtk2
+gtk4-layer-shell
 gvfs
 htop
 hyprcursor-git
@@ -38,6 +39,7 @@ hyprlock-git
 hyprpaper-git
 hyprpicker-git
 hyprpolkitagent-git
+hyprswitch
 imagemagick
 intltool
 jdk17-openjdk
@@ -52,6 +54,7 @@ linux-headers
 lolcat
 lshw
 luarocks
+lutris
 mako
 man-db
 man-pages
@@ -66,6 +69,7 @@ ntfs-3g
 nvidia-dkms
 obs-studio
 oh-my-zsh-git
+openfortivpn
 otf-firamono-nerd
 pavucontrol
 pfetch
@@ -78,7 +82,9 @@ qimgv
 qt5ct
 qt6ct
 qtcreator
+ranger
 reflector
+ruby-irb
 scdoc
 sddm-git
 slurp
@@ -97,19 +103,24 @@ tlp
 tmux
 tree
 ttf-fantasque-sans-mono
+ttf-jetbrains-mono
+ttf-jetbrains-mono-nerd
 ttf-lato
 ttf-roboto-mono-nerd
+ttf-ubuntu-font-family
 tumbler
 unimatrix-git
 unzip
-uwsm
 vim-plug
 visual-studio-code-bin
 vlc
 waybar
+waypaper-git
 webcord
 wget
 which
+wine
+wine-mono
 wireplumber
 wireshark-qt
 wl-clipboard
