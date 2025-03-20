@@ -1,7 +1,7 @@
 # archdots
 Dotfiles and instructions to make fresh arch installs easier (for me)
 
-!! This is a <strong>very</strong> early work in progress !!
+## REFER TO MY SWAY GUIDE INSTEAD, THIS IS JUST AN ARCHIVE FOR MY HYPRLAND DOTFILES
 
 <h2>Setup Overview</h2>
   <h3 style="text-decoration: underline">System</h3>
