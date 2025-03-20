@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
 <action>
-	<icon>kitty</icon>
+	<icon>utilities-terminal</icon>
 	<name>Open Terminal Here</name>
 	<submenu></submenu>
-	<unique-id>1731375266949579-1</unique-id>
-	<command>kitty --working-directory %f</command>
+	<unique-id>1741984278654992-1</unique-id>
+	<command>kitty %f</command>
 	<description>Example for a custom action</description>
 	<range></range>
 	<patterns>*</patterns>

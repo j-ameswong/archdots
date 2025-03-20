@@ -74,6 +74,11 @@ and DO NOT skip over any steps, especially the <a href="https://wiki.archlinux.o
 2. This is a great <a href="https://github.com/3rfaan/arch-everforest">guide to setup Arch initially</a> until you get to the Desktop Environment.
 
 3. Run <code>sudo pacman -S - < pkginstall.txt</code> or <code>yay -S - < pkglist.txt</code> if you have access to the AUR.
-<br>Note: passing <code>pkglist.txt</code> to yay will install both AUR and core packages. This is the preferred option.
+<br>Note: passing <code>pkglist.txt</code> to yay will install both AUR and core packages. This is the preferred option
 
-4. 
+4. Add this line: <code>GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 nvidia-drm.modeset=1"</code> to /etc/default/grub, then run <code>grub-mkconfig -o /boot/grub/grub.cfg</code>
+
+5. <code>cat /etc/modprobe.d/nvidia.conf</code> and make sure it says <code>options nvidia-drm modeset=1</code>
+
+6. <code>echo "nvidia nvidia_modeset nvidia_uvm nvidia_drm" | sudo tee /etc/modules-load.d/nvidia.conf</code> to make sure nvidia loads first. Then regenerate initramfs with <code>mkinitcpio -P</code>
+  

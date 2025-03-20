@@ -21,7 +21,7 @@ set $file thunar
 
 ### Output configuration
 #
-output * bg /home/contessa/Pictures/Wallpapers/frieren.jpeg fill
+output * bg /home/contessa/Pictures/Wallpapers/wallpaper fill
 #
 # Example configuration:
 #
@@ -65,8 +65,8 @@ input "1267:12928:ELAN06FA:00_04F3:3280_Touchpad" {
 
 # Keyboard repeat delay and rate
 input type:keyboard {
-    repeat_delay 150
-    repeat_rate 30
+    repeat_delay 300
+    repeat_rate 35
 }
 
 ### Key bindings
@@ -168,7 +168,7 @@ input type:keyboard {
     bindsym $mod+f floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    # bindsym $mod+space focus mode_toggle
 
     # Move focus to the parent container
     # bindsym $mod+a focus parent
@@ -207,6 +207,7 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
 bindsym $mod+r mode "resize"
 #
 # Utilities:
@@ -221,24 +222,24 @@ bindsym $mod+r mode "resize"
     bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
     # Special key to take a screenshot with grim
     bindsym Print exec grim
-
+    bindsym $mod+Print exec grim -g "$(slurp -d)" - | wl-copy
 #
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
+# bar {
+#     position top
+# 
+#     # When the status_command prints a new line to stdout, swaybar updates.
+#     # The default just shows the current date and time.
+#     status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+# 
+#     colors {
+#         statusline #ffffff
+#         background #323232
+#         inactive_workspace #32323200 #32323200 #5c5c5c
+#     }
+# }
 
 # Window rules
 for_window [app_id="kitty"] floating enable
@@ -246,11 +247,16 @@ for_window [title="^File Operation Progress$"] floating enable
 for_window [title="^Confirm to replace files$"] floating enable
 
 # Clipboard history
-exec = wl-paste --watch cliphist store
+exec wl-paste --watch cliphist store
 bindsym $mod+v exec sh ~/.config/fuzzel/clipboard-fuzzel.sh
 
 # WLogout
 bindsym $mod+BackSpace exec wlogout
+
+# Transparency
+set $opacity 0.98
+for_window [class=".*"] opacity $opacity
+for_window [app_id=".*"] opacity $opacity
 
 # NVIDIA-specific Configuration
 exec export WLR_NO_HARDWARE_CURSORS=1
@@ -258,3 +264,13 @@ exec export GBM_BACKEND=nvidia-drm
 exec export __GLX_VENDOR_LIBRARY_NAME=nvidia
 exec export MOZ_ENABLE_WAYLAND=1
 include /etc/sway/config.d/*
+
+# VPN
+exec nordvpn connect
+
+# fcitx5 for Chinese PinYin input
+exec fcitx5
+exec export QT_IM_MODULE=fcitx
+
+# Status bar
+exec waybar
