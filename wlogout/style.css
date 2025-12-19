@@ -13,12 +13,12 @@ window {
 /** ********** Buttons ********** **/
 button {
     background-color: rgba(0,0,0,0.7);
-    color: rgba(255,255,255,0.9);
+    color: rgba(255,255,255,0.8);
     border: 1px solid rgba(255,255,255,0.2);
     border-radius: 20px;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 35%;
+    background-size: 25px;
     transition: all 0.2s ease-in-out;
     margin: 2px;
 }
@@ -26,7 +26,7 @@ button {
 button:focus,
 button:active {
     color: #ffffff;
-    background-color: rgba(5,5,10,0.6);
+    background-color: rgba(15,15,15,0.6);
     border: 1px solid rgba(255,255,255,0.3);
     outline-style: none;
 }

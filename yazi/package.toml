@@ -1,0 +1,14 @@
+[[plugin.deps]]
+use = "grappas/wl-clipboard"
+rev = "e9a38e4"
+hash = "6b8e5d6b09626facec713923d3ddb54b"
+
+[[flavor.deps]]
+use = "956MB/vscode-light-plus"
+rev = "83c8be6"
+hash = "3b7e1e867311745f1335449b9a9cdfd3"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-latte"
+rev = "f6b425a"
+hash = "31f2ba594080bfc2a68d054101cdc5f1"
