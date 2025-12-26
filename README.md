@@ -147,4 +147,6 @@ So to summarize, I use:
 3. `awww` for wallpapers
 4. `waybar` for the status bar
 
-Just copy my dotfiles and modify them as needed, enjoy!
+If you're going to use my shell scripts/dotfiles, `jq`, `fzf`, `sed`, `zoxide` and `socat` are required, so install those if you haven't already.
+
+Just copy my dotfiles into `~/.config` and modify them as needed, enjoy!
