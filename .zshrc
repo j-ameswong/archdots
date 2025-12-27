@@ -94,3 +94,18 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'rch-fo
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+
+# nvim session with project selection via fzf
+alias t="sh ~/.config/hypr/scripts/tmux_sesh_pick.sh"
+alias tt="sh ~/.config/hypr/scripts/tmux.sh"
+
+# Git helpers
+hist() {
+  # 1. Use fzf to find a file
+  local file=$(fzf --preview 'git log --oneline --color=always -- {}')
+
+  # 2. If a file was selected, run git log -p
+  if [ -n "$file" ]; then
+    git log -p -- "$file"
+  fi
+}

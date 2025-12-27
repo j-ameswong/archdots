@@ -2,7 +2,7 @@
 
 # 1. Use zoxide to list directories and pipe to fzf
 # We use --no-sort for fzf because zoxide already provides the list sorted by 'frecency'
-SELECTED_DIR=$(zoxide query --list | fzf --height=40% --layout=reverse --border --prompt="🚀 Project > ")
+SELECTED_DIR=$(zoxide query --list | fzf --height=70% --layout=reverse --border --prompt="Project > ")
 
 # 2. Exit if the user cancelled fzf (pressed ESC or Ctrl+C)
 if [[ -z "$SELECTED_DIR" ]]; then
