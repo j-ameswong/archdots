@@ -1,37 +1,56 @@
 #!/bin/bash
 
-# 1. Use zoxide to list directories and pipe to fzf
-# We use --no-sort for fzf because zoxide already provides the list sorted by 'frecency'
-SELECTED_DIR=$(zoxide query --list | fzf --height=70% --layout=reverse --border --prompt="Project > ")
+# Use zoxide to list directories and pipe to fzf
+SELECTED_DIR=$(zoxide query --list | fzf --height=100% --layout=reverse --border --prompt="Project > ")
 
-# 2. Exit if the user cancelled fzf (pressed ESC or Ctrl+C)
+# Exit if the user cancelled directory selection
 if [[ -z "$SELECTED_DIR" ]]; then
     exit 0
 fi
 
-# 3. Generate a clean session name
-# basename gets the folder name (e.g., /home/dev/cool-api -> cool-api)
-# tr replaces dots with underscores to keep tmux happy
+# We enter the directory temporarily so fzf shows relative paths (e.g., "src/main.rs" instead of "/home/user/...")
+pushd "$SELECTED_DIR" > /dev/null
+
+# Use a subshell or a listing command. 
+if command -v fd > /dev/null; then
+    LIST_CMD="fd --type f --hidden --follow --exclude .git"
+else
+    LIST_CMD="find . -type f -not -path '*/.*'"
+fi
+
+SELECTED_FILE=$(eval "$LIST_CMD" | fzf --height=100% --layout=reverse --border --prompt="File (Esc to skip) > ")
+
+# We leave the directory to return to the script's original context
+popd > /dev/null
+# --------------------------------
+
+# 3. Generate session name
 SESSION_NAME=$(basename "$SELECTED_DIR" | tr . _)
 
 # 4. Check if we are currently inside tmux
 if [[ -n "$TMUX" ]]; then
-    # If inside tmux, we want to switch the current client to the new session
     CHANGE_CMD="switch-client"
 else
-    # If outside tmux, we want to attach to the session
     CHANGE_CMD="attach-session"
 fi
 
-# 5. Create the session if it doesn't exist
+# Create the session if it doesn't exist
 if ! tmux has-session -t="$SESSION_NAME" 2> /dev/null; then
-    # Create a new detached session (-d) in the selected directory (-c)
+    # Create detached session
     tmux new-session -d -s "$SESSION_NAME" -c "$SELECTED_DIR"
     
-    # Send the 'nvim' command to the first window and press Enter (C-m)
-    # This keeps the shell alive if you quit nvim later
-    tmux send-keys -t "$SESSION_NAME" "nvim" C-m
+    # Determine nvim command: 
+    # If a file was picked, open it. Otherwise just open nvim in the cwd.
+    if [[ -n "$SELECTED_FILE" ]]; then
+        # We quote the file path to handle spaces safely
+        CMD="nvim '$SELECTED_FILE'"
+    else
+        CMD="nvim"
+    fi
+
+    # Send the command to tmux
+    tmux send-keys -t "$SESSION_NAME" "$CMD" C-m
 fi
 
-# 6. Attach to (or switch to) the session
+# Attach/Switch
 tmux $CHANGE_CMD -t "$SESSION_NAME"

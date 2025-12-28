@@ -11,7 +11,7 @@
 font=Cantarell Normal 9
 format=<b>%a ⏵</b> %s\n%b
 sort=-time
-output=DP-2
+output=
 layer=overlay
 anchor=top-right
 background-color=#1A1B26DD

@@ -3,7 +3,7 @@
     border: none;
     border-radius: 0;
     font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
-    font-size: 13px;
+    font-size: 12px;
     min-height: 0;
 }
 
@@ -11,8 +11,7 @@
 window#waybar {
     background: #282828; /* Dark Gray Background */
     color: #ffffff;      /* White Text */
-    border-radius: 10px; /* Rounded corners for dock look */
-    opacity: 0.95;       /* Slight transparency */
+    opacity: 0.8;       /* Slight transparency */
 }
 
 /* Tooltips */
@@ -33,9 +32,19 @@ tooltip label {
 #pulseaudio,
 #network,
 #battery,
+#bluetooth,
 #tray {
     padding: 0 5px;
     margin: 2px 0; /* Vertical spacing inside the bar */
+}
+
+#tray {
+    padding-bottom: 5px;
+}
+
+/* if bluetooth on but not connected */
+#bluetooth.on {
+    opacity: 0.5;
 }
 
 /* Workspaces */
@@ -61,14 +70,23 @@ tooltip label {
     color: #ffffff;
 }
 #pulseaudio.muted {
-    color: #ff5555; /* Red when muted */
+    opacity: 0.5;
 }
 
 #network {
     color: #ffffff;
 }
+
 #network.disconnected {
-    color: #ff5555;
+    opacity: 0.5;
+}
+
+#tray {
+    margin: 10px;
+    opacity: 0.9;
+    border: 1px solid white;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.9);
 }
 
 #battery {

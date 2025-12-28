@@ -1,0 +1,90 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 36,
+  "spacing": 4,
+
+  // Load Modules
+  "modules-left": ["hyprland/workspaces", "sway/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["tray", "bluetooth", "pulseaudio", "network", "battery"],
+
+  // --- Module Configuration --- //
+
+  // Workspaces (Hyprland)
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+  },
+  // Workspaces (Sway - fallback)
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format": "{name}",
+  },
+
+  "clock": {
+    "format": "{:%H:%M | %a %d}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+  },
+  "bluetooth": {
+    // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+    "format": " On",
+    "format-disabled": "", // an empty format will hide the module
+    "format-connected": " {device_alias}",
+    "max-length": 10,
+    "ellipsize": true,
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "kitty --class=kitty-special --override initial_window_width=100c --override initial_window_height=30c -e bluetui",
+  },
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": " Muted",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""],
+    },
+    "on-click": "kitty --class=kitty-special --override initial_window_width=100c --override initial_window_height=30c -e wiremix",
+  },
+  "custom/brightness": {
+    "format": " {text}%",
+    "signal": 8,
+    "exec": "~/.config/waybar/scripts/brightness.sh get",
+    "on-scroll-up": "~/.config/waybar/scripts/brightness.sh up",
+    "on-scroll-down": "~/.config/waybar/scripts/brightness.sh down",
+    "on-click": "~/.config/waybar/scripts/brightness.sh left_click",
+    "on-click-right": "~/.config/waybar/scripts/brightness.sh right_click",
+  },
+  "network": {
+    "format-wifi": "  {essid}",
+    "format-ethernet": " Cable",
+    "format-linked": " {ifname} (No IP)",
+    "format-disconnected": "⚠ Disconnected",
+    "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+    "on-click": "kitty --class=kitty-special --override initial_window_width=100c --override initial_window_height=30c -e nmtui",
+    "max-length": 10,
+    "ellipsize": true,
+  },
+
+  "tray": {
+    "icon-size": 14,
+    "spacing": 10,
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15,
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+  },
+}
