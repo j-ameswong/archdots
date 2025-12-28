@@ -147,6 +147,6 @@ So to summarize, I use:
 3. `awww` for wallpapers
 4. `waybar` for the status bar
 
-If you're going to use my shell scripts/dotfiles, `jq`, `fzf`, `sed`, `zoxide` and `socat` are required, so install those if you haven't already.
+You can go ahead and configure them yourself, but if you want to copy my config, please make sure to install the required packages with `pacman -S --needed - < pkg.list` and `yay -S --needed - < aur.list`
 
-Just copy my dotfiles into `~/.config` and modify them as needed, enjoy!
+Just copy my `.zshrc` and `.tmux.conf` into your home directory and config dotfiles into `~/.config` and modify them as needed, enjoy!

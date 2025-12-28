@@ -31,6 +31,8 @@ alias grep="rg"
 alias ls="eza"
 alias ll="eza -al"
 alias ff="fastfetch --logo /home/contessa/Pictures/Wallpapers/Kyubeymain.png --logo-type kitty-direct --logo-width 25 --logo-height 10"
+alias cat="bat"
+alias find="fd"
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
