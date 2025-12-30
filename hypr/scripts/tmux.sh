@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# 1. Select Directory
 # Use zoxide to list directories and pipe to fzf
 SELECTED_DIR=$(zoxide query --list | fzf --height=100% --layout=reverse --border --prompt="Project > ")
 
@@ -8,7 +9,8 @@ if [[ -z "$SELECTED_DIR" ]]; then
     exit 0
 fi
 
-# We enter the directory temporarily so fzf shows relative paths (e.g., "src/main.rs" instead of "/home/user/...")
+# 2. Select File (Optional)
+# We enter the directory temporarily so fzf shows relative paths
 pushd "$SELECTED_DIR" > /dev/null
 
 # Use a subshell or a listing command. 
@@ -22,35 +24,39 @@ SELECTED_FILE=$(eval "$LIST_CMD" | fzf --height=100% --layout=reverse --border -
 
 # We leave the directory to return to the script's original context
 popd > /dev/null
+
 # --------------------------------
 
-# 3. Generate session name
-SESSION_NAME=$(basename "$SELECTED_DIR" | tr . _)
+# 3. Generate Unique Session Name
+# Start with the base folder name
+BASE_SESSION_NAME=$(basename "$SELECTED_DIR" | tr . _)
+SESSION_NAME="$BASE_SESSION_NAME"
+COUNTER=1
 
-# 4. Check if we are currently inside tmux
-if [[ -n "$TMUX" ]]; then
-    CHANGE_CMD="switch-client"
+# Check if session exists; if so, append a number and increment until unique
+while tmux has-session -t="$SESSION_NAME" 2> /dev/null; do
+    SESSION_NAME="${BASE_SESSION_NAME}-${COUNTER}"
+    ((COUNTER++))
+done
+
+# 4. Create the new session
+# We no longer check "if ! has-session" because the loop above guarantees uniqueness
+tmux new-session -d -s "$SESSION_NAME" -c "$SELECTED_DIR"
+
+# Determine nvim command
+if [[ -n "$SELECTED_FILE" ]]; then
+    # We quote the file path to handle spaces safely
+    CMD="nvim '$SELECTED_FILE'"
 else
-    CHANGE_CMD="attach-session"
+    CMD="nvim"
 fi
 
-# Create the session if it doesn't exist
-if ! tmux has-session -t="$SESSION_NAME" 2> /dev/null; then
-    # Create detached session
-    tmux new-session -d -s "$SESSION_NAME" -c "$SELECTED_DIR"
-    
-    # Determine nvim command: 
-    # If a file was picked, open it. Otherwise just open nvim in the cwd.
-    if [[ -n "$SELECTED_FILE" ]]; then
-        # We quote the file path to handle spaces safely
-        CMD="nvim '$SELECTED_FILE'"
-    else
-        CMD="nvim"
-    fi
+# Send the command to tmux
+tmux send-keys -t "$SESSION_NAME" "$CMD" C-m
 
-    # Send the command to tmux
-    tmux send-keys -t "$SESSION_NAME" "$CMD" C-m
+# 5. Attach or Switch
+if [[ -n "$TMUX" ]]; then
+    tmux switch-client -t "$SESSION_NAME"
+else
+    tmux attach-session -t "$SESSION_NAME"
 fi
-
-# Attach/Switch
-tmux $CHANGE_CMD -t "$SESSION_NAME"

@@ -1,5 +1,6 @@
 base
 base-devel
+bat
 bluetui
 bluez
 breeze-gtk
@@ -11,6 +12,7 @@ chafa
 clang
 cliphist
 ddcutil
+dysk
 efibootmgr
 egl-wayland
 eza
@@ -37,16 +39,19 @@ ly
 mako
 man-db
 maven
+mpv
 neovim
 networkmanager
 nodejs
 noto-fonts-cjk
 noto-fonts-emoji
 npm
+ntfs-3g
 ntp
 nvidia-open
 nvidia-utils
 nwg-look
+obs-studio
 openssh
 os-prober
 otf-font-awesome
@@ -57,6 +62,7 @@ python-dbus
 python-pip
 ripgrep
 ruby
+showmethekey
 slurp
 socat
 sudo
@@ -68,8 +74,10 @@ ttf-jetbrains-mono-nerd
 udiskie
 ueberzugpp
 unzip
+uv
 vim
 viu
+vlc
 waybar
 wget
 wiremix
