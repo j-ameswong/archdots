@@ -1,5 +1,9 @@
 brave-bin
 bruno
+davinci-resolve
+gtk2
+libayatana-appindicator-glib
+libpng12
 nitch
 nordvpn-bin
 pfetch
@@ -7,6 +11,7 @@ pinta
 pipemixer
 preload
 supergfxctl
+tailscale-systray-git
 unimatrix-git
 wlogout
 yay

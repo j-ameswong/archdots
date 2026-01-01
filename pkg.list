@@ -1,3 +1,4 @@
+7zip
 base
 base-devel
 bat
@@ -30,11 +31,13 @@ hyprland
 hyprpicker
 hyprpolkitagent
 jdk-openjdk
+jdk17-openjdk
 jq
 kitty
 linux
 linux-firmware
 luarocks
+lutris
 ly
 mako
 man-db
@@ -52,6 +55,7 @@ nvidia-open
 nvidia-utils
 nwg-look
 obs-studio
+obsidian
 openssh
 os-prober
 otf-font-awesome
@@ -60,6 +64,7 @@ pipewire-pulse
 prettier
 python-dbus
 python-pip
+qbittorrent
 ripgrep
 ruby
 showmethekey
@@ -67,6 +72,7 @@ slurp
 socat
 sudo
 swww
+tailscale
 tlp
 tmux
 tree-sitter-cli
