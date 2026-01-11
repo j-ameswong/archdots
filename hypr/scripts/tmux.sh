@@ -39,24 +39,21 @@ while tmux has-session -t="$SESSION_NAME" 2> /dev/null; do
     ((COUNTER++))
 done
 
-# 4. Create the new session
-# We no longer check "if ! has-session" because the loop above guarantees uniqueness
-tmux new-session -d -s "$SESSION_NAME" -c "$SELECTED_DIR"
-
 # Determine nvim command
 if [[ -n "$SELECTED_FILE" ]]; then
-    # We quote the file path to handle spaces safely
-    CMD="nvim '$SELECTED_FILE'"
+    CMD="nvim '$SELECTED_DIR/$SELECTED_FILE'"
 else
-    CMD="nvim"
+    CMD="nvim '$SELECTED_DIR'"
 fi
 
-# Send the command to tmux
-tmux send-keys -t "$SESSION_NAME" "$CMD" C-m
-
-# 5. Attach or Switch
+# 4 & 5. Attach, Switch, or Split
 if [[ -n "$TMUX" ]]; then
-    tmux switch-client -t "$SESSION_NAME"
+    # We are inside tmux: Open a new pane in the current window
+    # -c sets the start directory, -h for horizontal split (change to -v for vertical)
+    tmux new-window -c "$SELECTED_DIR" -n "nvim" "$CMD"
 else
+    # We are outside tmux: Create a new session and attach
+    tmux new-session -d -s "$SESSION_NAME" -c "$SELECTED_DIR"
+    tmux send-keys -t "$SESSION_NAME" "$CMD" C-m
     tmux attach-session -t "$SESSION_NAME"
 fi
