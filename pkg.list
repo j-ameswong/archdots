@@ -28,8 +28,10 @@ grim
 grub
 htop
 hyprland
+hyprlock
 hyprpicker
 hyprpolkitagent
+imagemagick
 jdk-openjdk
 jdk17-openjdk
 jq
@@ -37,7 +39,6 @@ kitty
 linux
 linux-firmware
 luarocks
-lutris
 ly
 mako
 man-db
@@ -70,11 +71,13 @@ ruby
 showmethekey
 slurp
 socat
+steam
 sudo
 swww
 tailscale
 tlp
 tmux
+tree
 tree-sitter-cli
 ttf-jetbrains-mono-nerd
 udiskie
