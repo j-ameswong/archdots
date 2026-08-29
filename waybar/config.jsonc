@@ -7,7 +7,15 @@
   // Load Modules
   "modules-left": ["hyprland/workspaces", "sway/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["tray", "bluetooth", "pulseaudio", "network", "battery"],
+  "modules-right": [
+    "tray",
+    // "disk",
+    "bluetooth",
+    "pulseaudio",
+    "backlight",
+    "network",
+    "battery",
+  ],
 
   // --- Module Configuration --- //
 
@@ -27,6 +35,19 @@
     "format": "{:%H:%M | %a %d}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
   },
+  "disk": {
+    "interval": 30,
+    // formatted as: Icon | Percentage Used | Total Amount Free
+    "format": "  {percentage_used}%",
+    "path": "/",
+    "on-click": "kitty --class=kitty-special --override initial_window_width=100c --override initial_window_height=30c -e dysk",
+    "tooltip": true,
+    "tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)",
+    "states": {
+      "warning": 80,
+      "critical": 90,
+    },
+  },
   "bluetooth": {
     // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
     "format": " On",
@@ -40,7 +61,7 @@
     "on-click": "kitty --class=kitty-special --override initial_window_width=100c --override initial_window_height=30c -e bluetui",
   },
   "pulseaudio": {
-    "format": "{icon}  {volume}%",
+    "format": "{icon} {volume}%",
     "format-muted": " Muted",
     "format-icons": {
       "headphone": "",
@@ -53,14 +74,10 @@
     },
     "on-click": "kitty --class=kitty-special --override initial_window_width=100c --override initial_window_height=30c -e wiremix",
   },
-  "custom/brightness": {
-    "format": " {text}%",
-    "signal": 8,
-    "exec": "~/.config/waybar/scripts/brightness.sh get",
-    "on-scroll-up": "~/.config/waybar/scripts/brightness.sh up",
-    "on-scroll-down": "~/.config/waybar/scripts/brightness.sh down",
-    "on-click": "~/.config/waybar/scripts/brightness.sh left_click",
-    "on-click-right": "~/.config/waybar/scripts/brightness.sh right_click",
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": ["", ""],
   },
   "network": {
     "format-wifi": "  {essid}",
@@ -83,8 +100,9 @@
       "warning": 30,
       "critical": 15,
     },
-    "format": "{icon} {capacity}%",
-    "format-charging": " {capacity}%",
+    "format": "{icon}  {capacity}%",
+    "format-charging": "  {capacity}%",
     "format-icons": ["", "", "", "", ""],
+    "on-click": "kitty --class=kitty-special --override initial_window_width=100c --override initial_window_height=30c -e sudo tlp-stat",
   },
 }

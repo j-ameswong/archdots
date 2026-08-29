@@ -1,7 +1,6 @@
 /* Reset global styles */
 * {
     border: none;
-    border-radius: 0;
     font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
     font-size: 12px;
     min-height: 0;
@@ -33,13 +32,24 @@ tooltip label {
 #network,
 #battery,
 #bluetooth,
+#brightness,
+#disk,
 #tray {
-    padding: 0 5px;
-    margin: 2px 0; /* Vertical spacing inside the bar */
+    padding: 0 3px;
+    margin: 2px 5px; /* Vertical spacing inside the bar */
 }
 
 #tray {
-    padding-bottom: 5px;
+    padding: 3px 5px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#brightness {
+    margin-right: 10px;
+}
+
+#bluetooth {
+    margin: 2px 5px;
 }
 
 /* if bluetooth on but not connected */
@@ -52,12 +62,12 @@ tooltip label {
     padding: 0 5px;
     color: #ffffff;
     background: transparent;
+    opacity: 0.5;
 }
 
 /* Active Workspace (RED) */
 #workspaces button.active {
-    color: #ff5555; 
-    border-bottom: 1px solid #ff5555;
+    opacity: 1;
 }
 
 #workspaces button:hover {
@@ -75,6 +85,7 @@ tooltip label {
 
 #network {
     color: #ffffff;
+    margin-right: 0px;
 }
 
 #network.disconnected {
