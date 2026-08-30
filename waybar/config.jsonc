@@ -1,108 +1,147 @@
-{
-  "layer": "top",
-  "position": "top",
-  "height": 36,
-  "spacing": 4,
+[
+	// Primary bar: every output except the narrow secondary monitor.
+	{
+		"name": "full",
+		"output": [ "!DP-5", "*" ],
 
-  // Load Modules
-  "modules-left": ["hyprland/workspaces", "sway/workspaces"],
-  "modules-center": ["clock"],
-  "modules-right": [
-    "tray",
-    // "disk",
-    "bluetooth",
-    "pulseaudio",
-    "backlight",
-    "network",
-    "battery",
-  ],
+		"mode": "dock",
+		"position": "top",
+		"layer": "top",
+		"width": 0,
+		"height": 0,
+		"margin": 0,
+		"spacing": 0,
+		"reload_style_on_change": true,
 
-  // --- Module Configuration --- //
+		"include": [
+			"~/.config/waybar/modules/custom/*.jsonc",
+			"~/.config/waybar/modules/hyprland/*.jsonc",
+			// "~/.config/waybar/modules/optional/*.jsonc",
+			"~/.config/waybar/modules/*.jsonc"
+		],
 
-  // Workspaces (Hyprland)
-  "hyprland/workspaces": {
-    "format": "{icon}",
-    "on-click": "activate",
-  },
-  // Workspaces (Sway - fallback)
-  "sway/workspaces": {
-    "disable-scroll": true,
-    "all-outputs": true,
-    "format": "{name}",
-  },
+		"modules-left": [
+			"custom/user",
 
-  "clock": {
-    "format": "{:%H:%M | %a %d}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-  },
-  "disk": {
-    "interval": 30,
-    // formatted as: Icon | Percentage Used | Total Amount Free
-    "format": "  {percentage_used}%",
-    "path": "/",
-    "on-click": "kitty --class=kitty-special --override initial_window_width=100c --override initial_window_height=30c -e dysk",
-    "tooltip": true,
-    "tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)",
-    "states": {
-      "warning": 80,
-      "critical": 90,
-    },
-  },
-  "bluetooth": {
-    // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
-    "format": " On",
-    "format-disabled": "", // an empty format will hide the module
-    "format-connected": " {device_alias}",
-    "max-length": 10,
-    "ellipsize": true,
-    "tooltip-format": "{controller_alias}\t{controller_address}",
-    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "on-click": "kitty --class=kitty-special --override initial_window_width=100c --override initial_window_height=30c -e bluetui",
-  },
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-muted": " Muted",
-    "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": ["", "", ""],
-    },
-    "on-click": "kitty --class=kitty-special --override initial_window_width=100c --override initial_window_height=30c -e wiremix",
-  },
-  "backlight": {
-    "device": "intel_backlight",
-    "format": "{icon} {percent}%",
-    "format-icons": ["", ""],
-  },
-  "network": {
-    "format-wifi": "  {essid}",
-    "format-ethernet": " Cable",
-    "format-linked": " {ifname} (No IP)",
-    "format-disconnected": "⚠ Disconnected",
-    "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
-    "on-click": "kitty --class=kitty-special --override initial_window_width=100c --override initial_window_height=30c -e nmtui",
-    "max-length": 10,
-    "ellipsize": true,
-  },
+			"custom/left#bg-1",
+			"hyprland/workspaces",
+			"custom/right#bg-1",
 
-  "tray": {
-    "icon-size": 14,
-    "spacing": 10,
-  },
+			"hyprland/window"
+		],
 
-  "battery": {
-    "states": {
-      "warning": 30,
-      "critical": 15,
-    },
-    "format": "{icon}  {capacity}%",
-    "format-charging": "  {capacity}%",
-    "format-icons": ["", "", "", "", ""],
-    "on-click": "kitty --class=kitty-special --override initial_window_width=100c --override initial_window_height=30c -e sudo tlp-stat",
-  },
-}
+		"modules-center": [
+			"hyprland/language",
+
+			"custom/left#bg-1",
+			"temperature",
+
+			"custom/left#bg-2",
+			"memory",
+
+			"custom/left#bg-3",
+			"cpu",
+			"custom/left#inverse",
+
+			"custom/left#accent",
+			"custom/distro",
+			"custom/right#accent",
+
+			"custom/right#inverse",
+			"idle_inhibitor",
+			"clock#time",
+			"custom/right#bg-3",
+
+			"clock#date",
+			"custom/right#bg-2",
+
+			"network",
+			"bluetooth",
+			"custom/update",
+			"custom/right#bg-1"
+		],
+
+		"modules-right": [
+			"mpris",
+
+			"custom/left#bg-1",
+			"group/pulseaudio",
+
+			"custom/left#bg-2",
+			"backlight",
+
+			"custom/left#bg-3",
+			"battery",
+			"custom/left#inverse",
+
+			"custom/power"
+		]
+	},
+
+	// Secondary bar: narrow outputs. Same modules minus the variable-width
+	// and duplicated ones. Styled with "window#waybar.mini" in style.css.
+	{
+		"name": "mini",
+		"output": "DP-5",
+
+		"mode": "dock",
+		"position": "top",
+		"layer": "top",
+		"width": 0,
+		"height": 0,
+		"margin": 0,
+		"spacing": 0,
+		"reload_style_on_change": true,
+
+		"include": [
+			"~/.config/waybar/modules/custom/*.jsonc",
+			"~/.config/waybar/modules/hyprland/*.jsonc",
+			// "~/.config/waybar/modules/optional/*.jsonc",
+			"~/.config/waybar/modules/*.jsonc"
+		],
+
+		// Dropped: "hyprland/window" (unbounded width).
+		"modules-left": [
+			"custom/user",
+
+			"custom/left#bg-1",
+			"hyprland/workspaces",
+			"custom/right#bg-1"
+		],
+
+		// Dropped: "hyprland/language", "temperature", "memory", "cpu",
+		// "idle_inhibitor", "custom/update" (host-wide, already on the
+		// primary bar). The left descent into bg-3 goes with them.
+		"modules-center": [
+			"custom/left#accent",
+			"custom/distro",
+			"custom/right#accent",
+
+			"custom/right#inverse",
+			"clock#time",
+			"custom/right#bg-3",
+
+			"clock#date",
+			"custom/right#bg-2",
+
+			"network",
+			"bluetooth",
+			"custom/right#bg-1"
+		],
+
+		// Dropped: "mpris" (unbounded width).
+		"modules-right": [
+			"custom/left#bg-1",
+			"group/pulseaudio",
+
+			"custom/left#bg-2",
+			"backlight",
+
+			"custom/left#bg-3",
+			"battery",
+			"custom/left#inverse",
+
+			"custom/power"
+		]
+	}
+]

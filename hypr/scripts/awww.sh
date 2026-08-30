@@ -3,7 +3,7 @@
 # One entry per monitor. Format: "output_name:wallpaper_dir"
 MONITORS=(
     "eDP-1:$HOME/Pictures/Wallpapers/"
-    "DP-2:$HOME/Pictures/Wallpapers/"
+    "DP-5:$HOME/Pictures/Wallpapers/"
 )
 CACHE_DIR="$HOME/.cache/awww"
 TRANSITION_DURATION=0.8

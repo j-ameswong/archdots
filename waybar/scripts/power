@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#
+# Launch a power menu
+#
+# Dependencies:
+#   - wlogout
+#
+# Author:  Jesse Mirabel <sejjymvm@gmail.com>
+# Date:    August 19, 2025
+# License: MIT
+
+main() {
+	pkill -x wlogout && return 0
+
+	exec wlogout --protocol layer-shell
+}
+
+main

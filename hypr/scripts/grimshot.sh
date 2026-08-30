@@ -1,4 +1,5 @@
 #!/bin/bash
+# requires slurp, grim, wl-copy 
 echo "Test"
 
 # Directory to save screenshots
