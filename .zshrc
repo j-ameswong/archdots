@@ -138,7 +138,7 @@ md() {
 		return 1
 	fi
 	output=$(mktemp --suffix=.html) || return 1
-	if ! pandoc -- "$input" -o "$output"; then
+	if ! pandoc -s --metadata title="${input:t}" -o "$output" -- "$input"; then
 		rm -f -- "$output"
 		return 1
 	fi
@@ -149,7 +149,7 @@ md() {
 # relative model path resolves regardless of the current directory.
 qwen() {
 	local root=$HOME/apps/llama.cpp
-	local model=$root/models/qwen2.5-coder-7b-q4_k_m.gguf
+	local model=$root/models/ggml-vocab-qwen2.gguf
 	if [[ ! -r $model ]]; then
 		print -u2 "qwen: model not found at $model"
 		return 1
