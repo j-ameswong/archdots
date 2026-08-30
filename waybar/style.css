@@ -4,7 +4,7 @@
  */
 * { all: initial; }
 
-@import "themes/catppuccin-macchiato.css";
+@import "./themes/catppuccin-latte.css";
 
 * {
 	font-family: "CommitMono Nerd Font";

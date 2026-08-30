@@ -244,6 +244,7 @@ hl.bind(mainMod .. " + P",         hl.dsp.window.pseudo()) -- dwindle
 hl.bind(mainMod .. " + C",         hl.dsp.exec_cmd("kitty -e ~/.config/hypr/scripts/tmux.sh"))
 hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("kitty -e ~/.config/hypr/scripts/tmux_sesh_pick.sh"))
 hl.bind(mainMod .. " + W",         hl.dsp.exec_cmd("~/.config/hypr/scripts/awww.sh"))
+hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(terminal .. " --class=kitty-special -e ~/.config/hypr/scripts/wallpaper_pick.sh"))
 
 -- Move focus with mainMod + hjkl
 hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
