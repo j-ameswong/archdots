@@ -1,0 +1,13 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = linux
+Target = linux-lts
+Target = grub
+
+[Action]
+Description = Signing bootloader and kernels for Secure Boot...
+When = PostTransaction
+Exec = /usr/bin/sbctl sign-all
+NeedsTargets
