@@ -418,9 +418,10 @@ set -g window-status-separator "  " #!important
 
 # toggle the status bar (overrides Oh my tmux!'s 'list-buffers')
 bind b set-option status #!important
-# kill session / window (C-k leaves 'k' to Oh my tmux!'s 'select-pane -U')
+# kill session / window / pane (C-k leaves 'k' to Oh my tmux!'s 'select-pane -U')
 bind C-k kill-session #!important
-bind x kill-window #!important
+bind C-x kill-window #!important
+bind x kill-pane #!important
 # prompt for a session name, create it or switch to it if it exists
 bind S command-prompt -p "New Session:" "new-session -A -s '%%'" #!important
 
