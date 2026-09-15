@@ -1,13 +1,10 @@
 {
 	"hyprland/workspaces": {
-		"persistent-workspaces": {
-			"*": 5
-		},
-		"format": "{icon}",
-		"format-icons": {
-			"active": "",
-			"default": ""
-		},
+		// No "persistent-workspaces": empty workspaces are destroyed by
+		// Hyprland, so only workspaces that actually hold windows (plus the
+		// focused one) get a button. "all-outputs" defaults to false, which
+		// keeps each bar to the workspaces assigned to its own monitor.
+		"format": "{id}",
 		"on-scroll-up": "hyprctl dispatch \"hl.dsp.focus({ workspace = 'r+1' })\"",
 		"on-scroll-down": "hyprctl dispatch \"hl.dsp.focus({ workspace = 'r-1' })\"",
 		"cursor": true

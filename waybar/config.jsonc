@@ -16,7 +16,7 @@
 		"include": [
 			"~/.config/waybar/modules/custom/*.jsonc",
 			"~/.config/waybar/modules/hyprland/*.jsonc",
-			// "~/.config/waybar/modules/optional/*.jsonc",
+			"~/.config/waybar/modules/optional/*.jsonc",
 			"~/.config/waybar/modules/*.jsonc"
 		],
 
@@ -25,6 +25,7 @@
 
 			"custom/left#bg-1",
 			"hyprland/workspaces",
+			"tray",
 			"custom/right#bg-1",
 
 			"hyprland/window"
@@ -96,11 +97,12 @@
 		"include": [
 			"~/.config/waybar/modules/custom/*.jsonc",
 			"~/.config/waybar/modules/hyprland/*.jsonc",
-			// "~/.config/waybar/modules/optional/*.jsonc",
+			"~/.config/waybar/modules/optional/*.jsonc",
 			"~/.config/waybar/modules/*.jsonc"
 		],
 
-		// Dropped: "hyprland/window" (unbounded width).
+		// Dropped: "hyprland/window" (unbounded width) and "tray"
+		// (host-wide, already on the primary bar).
 		"modules-left": [
 			"custom/user",
 

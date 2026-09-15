@@ -59,8 +59,12 @@ tooltip label {
 }
 #workspaces button.active label,
 #workspaces button.focused label {
-	font-size: 18.5px;
 	color: @accent;
+}
+
+#tray {
+	padding: 0 10px;
+	background-color: @bg-1;
 }
 
 /*
