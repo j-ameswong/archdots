@@ -145,22 +145,50 @@ md() {
 	xdg-open "$output" >/dev/null 2>&1 &!
 }
 
-# Serve the local qwen coder model. Runs from the llama.cpp dir so the
-# relative model path resolves regardless of the current directory.
+# Serve a Qwen 2.5 Coder FIM model on :8012 for llama.vim code completion.
+# Weights download from Hugging Face into ~/.cache/llama.cpp on first run.
+#
+# 7B Q4_K_M is the default. Benchmarked against the ggml-org Q8_0 build on
+# identical flags: 53.0 vs 31.9 t/s generation, 180 ms vs 300 ms warm /infill
+# latency, 3.2 GiB vs 244 MiB VRAM left free. Prompt processing is the same
+# for both (~2970 t/s) because that half is compute-bound, not bandwidth-bound.
+#   qwen          7B Q4_K_M
+#   qwen 7b-q8    7B Q8_0, slower but the official ggml-org quant
+#   qwen 3b       3B Q8_0
+#   qwen 1.5b     1.5B Q8_0, the only size that can share the GPU with qwen35
+# CTX=16384 qwen  override context (default 4096; the Q4 headroom allows more)
+#
+# -np 1 and the 512 batch trim ~136 MiB off the preset defaults at no
+# measurable latency cost.
 qwen() {
 	local root=$HOME/apps/llama.cpp
-	local model=$root/models/ggml-vocab-qwen2.gguf
-	if [[ ! -r $model ]]; then
-		print -u2 "qwen: model not found at $model"
-		return 1
-	fi
+	local size=${1:-7b}
+	(( $# > 0 )) && shift
+	local -a model_args
+	case $size in
+		7b)    model_args=(-hf QuantFactory/Qwen2.5-Coder-7B-GGUF
+		                   -hff Qwen2.5-Coder-7B.Q4_K_M.gguf
+		                   --port 8012 --cache-reuse 256) ;;
+		7b-q8) model_args=(--fim-qwen-7b-default) ;;
+		3b)    model_args=(--fim-qwen-3b-default) ;;
+		1.5b)  model_args=(--fim-qwen-1.5b-default) ;;
+		*) print -u2 "qwen: unknown size '$size' (use 7b, 7b-q8, 3b or 1.5b)"; return 1 ;;
+	esac
+	# Preset flags must come first. They set n_ctx, n_batch and n_cache_reuse, so
+	# anything overlapping with them has to follow to survive.
 	"$root/build/bin/llama-server" \
-		-m "$model" \
-		--port 8012 \
-		-ngl 28 \
-		-c 2048 \
-		--fim-qwen-7b-default "$@"
+		"${model_args[@]}" \
+		-ngl 99 \
+		-c ${CTX:-4096} \
+		-fa on -ctk q8_0 -ctv q8_0 \
+		-np 1 -b 512 -ub 512 \
+		"$@"
 }
+
+# Serve the big Qwen3.6-35B-A3B MoE chat model on :8080. Config is tuned for
+# this machine (measured): experts on CPU, attention on GPU, P-cores only.
+# Override with e.g. CTX=131072 qwen35
+alias qwen35="$HOME/apps/llama.cpp/serve-qwen.sh"
 
 # tmux cheat sheet. Covers the bindings from ~/.tmux.conf.local plus the Oh my
 # tmux! ones worth remembering; `<prefix> ?` lists everything tmux knows.
@@ -219,3 +247,6 @@ thelp() {
 	)
 	print -Pl -- "${help[@]}"
 }
+
+# opencode
+export PATH=/home/contessa/.opencode/bin:$PATH

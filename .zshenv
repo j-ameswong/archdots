@@ -8,8 +8,11 @@ path=(
 	$HOME/.local/bin
 	$HOME/.local/share/gem/ruby/3.4.0/bin
 	$HOME/.sdkman/candidates/java/current/bin
+    $HOME/.opencode/bin
 	$path
 )
 
 export SUDO_EDITOR=/usr/bin/nvim
 export SDKMAN_DIR="$HOME/.sdkman"
+
+[[ -f ~/.config/secrets/deepseek ]] && source ~/.config/secrets/deepseek
