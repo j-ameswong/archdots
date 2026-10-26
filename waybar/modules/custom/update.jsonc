@@ -7,6 +7,7 @@
 		"min-length": 2,
 		"max-length": 2,
 		"on-click": "kitty -e ~/.config/waybar/scripts/update",
-		"on-click-right": "pkill -RTMIN+1 waybar"
+		"on-click-right": "pkill -RTMIN+1 waybar",
+		"cursor": true
 	}
 }

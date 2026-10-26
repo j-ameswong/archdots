@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 #
-# Update Arch Linux packages
+# Update Arch Linux packages, then the toolchains and plugins pacman doesn't
+# manage (see post_upgrade)
 #
 # Dependencies:
 #   - pacman-contrib (checkupdates)
@@ -11,6 +12,14 @@
 # License: MIT
 
 AUR_HELPER=
+
+MD_RESET=$'\e[0m'
+FG_RED=$'\e[31m'
+FG_GREEN=$'\e[32m'
+FG_BLUE=$'\e[34m'
+
+# Names of post-upgrade steps that exited non-zero
+FAILED_STEPS=()
 
 print_help() {
 	local script=${0##*/}
@@ -63,6 +72,81 @@ detect_updates() {
 	printf "%d %d" "${repo_updates:-0}" "${aur_updates:-0}"
 }
 
+# Run a post-upgrade step if the command it needs is installed. Failures are
+# recorded rather than fatal so one broken tool doesn't block the rest.
+run_step() {
+	local name=$1 requires=$2
+	shift 2
+
+	command -v "$requires" >/dev/null || return 0
+
+	printf "\n%b==> %s%b\n" "$FG_BLUE" "$name" "$MD_RESET"
+	"$@" || FAILED_STEPS+=("$name")
+}
+
+update_zinit() {
+	zsh -c '
+		source "${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git/zinit.zsh" &&
+			zinit self-update &&
+			zinit update --all --quiet
+	'
+}
+
+# lazy.nvim plugins, treesitter parsers, and Mason packages. :MasonUpdate only
+# refreshes the registry, so outdated packages are reinstalled explicitly.
+update_neovim() {
+	local script status
+	script=$(mktemp --suffix=.lua)
+
+	cat >"$script" <<-'EOF'
+		require("nvim-treesitter").update():wait(300000)
+
+		local registry = require("mason-registry")
+		registry.refresh()
+
+		local pending, failed = 0, {}
+		for _, pkg in ipairs(registry.get_installed_packages()) do
+			if pkg:get_installed_version() ~= pkg:get_latest_version() then
+				pending = pending + 1
+				io.write("mason: updating " .. pkg.name .. "\n")
+				pkg:install({}, function(success)
+					if not success then
+						table.insert(failed, pkg.name)
+					end
+					pending = pending - 1
+				end)
+			end
+		end
+		vim.wait(600000, function() return pending == 0 end, 200)
+
+		if #failed > 0 then
+			io.write("mason: failed to update " .. table.concat(failed, ", ") .. "\n")
+			vim.cmd.cquit(1)
+		end
+	EOF
+
+	nvim --headless "+Lazy! sync" "+luafile $script" +qa
+	status=$?
+	rm -f "$script"
+	return $status
+}
+
+post_upgrade() {
+	run_step "rustup toolchains" rustup rustup update
+	run_step "flatpak" flatpak \
+		sh -c 'flatpak update -y --noninteractive && flatpak uninstall --unused -y --noninteractive'
+	run_step "uv pythons" uv uv python upgrade
+	run_step "uv tools" uv uv tool upgrade --all
+	run_step "neovim" nvim update_neovim
+	run_step "zinit" zsh update_zinit
+	run_step "yazi packages" ya ya pkg upgrade
+	run_step "playwright browsers" playwright playwright install
+	run_step "mise" mise sh -c 'mise self-update -y && mise upgrade'
+	run_step "ghcup" ghcup ghcup upgrade
+	run_step "cursor-agent" cursor-agent cursor-agent update
+	run_step "opencode" opencode opencode upgrade
+}
+
 print_data() {
 	local updates icon tooltip
 
@@ -101,21 +185,29 @@ main() {
 
 			detect_helper
 
-			local md_reset=$'\e[0m'
-			local fg_green=$'\e[32m'
-			local fg_blue=$'\e[34m'
+			printf "%bUpdating packages...%b\n" "$FG_BLUE" "$MD_RESET"
 
-			printf "%bUpdating packages...%b\n" "$fg_blue" "$md_reset"
-
+			local status
 			if [[ -n $AUR_HELPER ]]; then
 				command "$AUR_HELPER" -Syu
 			else
 				sudo pacman -Syu
 			fi
+			status=$?
 
-			notify-send "Update Complete" --icon "package-install"
+			if ((status != 0)); then
+				notify-send "Update Failed" --icon "dialog-error"
+				printf "\n%bSystem upgrade failed, skipping post-upgrade steps.%b\n" \
+					"$FG_RED" "$MD_RESET"
+			elif post_upgrade; ((${#FAILED_STEPS[@]} > 0)); then
+				notify-send "Update Complete" "Failed: ${FAILED_STEPS[*]}" --icon "dialog-warning"
+				printf "\n%bUpdate complete, but these steps failed:%b %s\n" \
+					"$FG_RED" "$MD_RESET" "${FAILED_STEPS[*]}"
+			else
+				notify-send "Update Complete" --icon "package-install"
+				printf "\n%bUpdate complete!%b\n" "$FG_GREEN" "$MD_RESET"
+			fi
 
-			printf "\n%bUpdate complete!%b\n" "$fg_green" "$md_reset"
 			read -rn 1 -p "Press any key to exit..."
 			;;
 		data)

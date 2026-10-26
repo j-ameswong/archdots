@@ -71,7 +71,7 @@ hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 -- Java
 -- NOTE: hl.env does not expand shell variables, so the old `$PATH` was being
 -- set literally. Use os.getenv to reference the existing value.
-hl.env("PATH", "/usr/lib/jvm/java-25-openjdk/bin/jlink:" .. (os.getenv("PATH") or ""))
+hl.env("PATH", "/usr/lib/jvm/java-25-openjdk/bin:" .. (os.getenv("PATH") or ""))
 hl.env("JAVA_HOME", "/usr/lib/jvm/java-25-openjdk")
 
 
