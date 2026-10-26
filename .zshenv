@@ -14,5 +14,7 @@ path=(
 
 export SUDO_EDITOR=/usr/bin/nvim
 export SDKMAN_DIR="$HOME/.sdkman"
+export XDG_DATA_DIRS="$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:home/contessa/.local/share/flatpak/exports/share"
 
 [[ -f ~/.config/secrets/deepseek ]] && source ~/.config/secrets/deepseek
+[[ -f ~/.config/secrets/openrouter ]] && source ~/.config/secrets/deepseek

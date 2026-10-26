@@ -86,6 +86,26 @@ _cached_eval() {
 _cached_eval fzf    fzf    fzf --zsh
 _cached_eval zoxide zoxide zoxide init --cmd cd zsh
 
+# Alt-C picks from visited directories, most recent first, instead of walking
+# the tree below $PWD. zoxide can only list by frecency, so a chpwd hook keeps
+# a separate recency log, seeded once from zoxide. Gone directories drop out on
+# the next cd. --no-sort keeps the recency order while filtering.
+_dirhist=${XDG_STATE_HOME:-$HOME/.local/state}/zsh/dirhist
+if [[ ! -f $_dirhist ]]; then
+	command mkdir -p -- "${_dirhist:h}"
+	zoxide query --list >| "$_dirhist"
+fi
+
+_dirhist_record() {
+	local -a dirs=($PWD ${(f)"$(<$_dirhist)"})
+	dirs=(${^${(u)dirs}}(N/))
+	print -rl -- ${dirs[1,500]} >| $_dirhist
+}
+chpwd_functions+=(_dirhist_record)
+
+FZF_ALT_C_COMMAND="grep -vxF -- \"\$PWD\" ${(q)_dirhist}"
+FZF_ALT_C_OPTS="--no-sort --preview 'eza --color=always {}'"
+
 # NOT cacheable: `mise activate` emits a literal `export PATH=...` snapshot of
 # the PATH at generation time, so a cached copy would freeze a stale PATH into
 # every future shell. Worth the ~16ms fork.
@@ -102,10 +122,10 @@ sdk() {
 }
 
 # ─── Aliases ──────────────────────────────────────────────────────────────
-alias ls='eza'
-alias ll='eza -l'
-alias l='eza -al'
-alias ff='fastfetch --logo "$HOME/Pictures/Wallpapers/Kyubeymain.png" --logo-type kitty-direct --logo-width 25 --logo-height 10'
+alias ll='eza -lh'
+alias la='eza -alh'
+
+alias ff='fastfetch --logo "$HOME/Pictures/Wallpapers/kyubey.png" --logo-type kitty-direct --logo-width 25 --logo-height 10'
 alias ros-fix='sudo chown -R "$USER:$USER" "$HOME/my_ros2_docker_workspace"'
 
 alias t='"$HOME/.config/hypr/scripts/tmux_sesh_pick.sh"'
