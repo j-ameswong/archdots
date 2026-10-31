@@ -117,9 +117,16 @@ FZF_ALT_C_OPTS="--no-sort --preview 'eza --color=always {}'"
 # The java candidate is already on PATH via .zshenv, so this stays transparent.
 sdk() {
 	unfunction sdk
+	sdkman_auto_env=true          # ← registers sdkman's own cd hook when init loads
 	source "$SDKMAN_DIR/bin/sdkman-init.sh"
 	sdk "$@"
 }
+
+# transparently trigger the lazy load the first time we cd into a .sdkmanrc dir
+_sdkman_cd() {
+	[[ -f .sdkmanrc ]] && sdk env
+}
+chpwd_functions+=(_sdkman_cd)
 
 # ─── Aliases ──────────────────────────────────────────────────────────────
 alias ll='eza -lh'
