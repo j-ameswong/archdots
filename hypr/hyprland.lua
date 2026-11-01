@@ -15,12 +15,19 @@ hl.monitor({
     scale    = "auto",
 })
 
+-- DP-5 is a generic Realtek scaler ("RTK demoset-1") whose EDID falsely
+-- advertises HDR. Since Hyprland 0.57 this causes HDR infoframe commits that
+-- nvidia-drm rejects in a tight loop (purple flicker, then a wedged output).
+-- Force plain 8-bit sRGB SDR.
 hl.monitor({
-    output    = "DP-5",
-    mode      = "preferred",
-    position  = "auto",
-    scale     = "auto",
-    transform = 2,
+    output       = "DP-5",
+    mode         = "preferred",
+    position     = "auto",
+    scale        = 1,
+    transform    = 2,
+    cm           = "srgb",
+    bitdepth     = 8,
+    supports_hdr = -1,
 })
 
 
