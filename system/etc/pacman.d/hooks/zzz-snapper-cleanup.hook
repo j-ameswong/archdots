@@ -1,0 +1,15 @@
+# Prune snap-pac snapshots down to NUMBER_LIMIT right after each transaction,
+# instead of waiting for snapper-cleanup.timer (hourly). Named zzz- so it
+# sorts after snap-pac's zz-snap-pac-post.hook and sees the new post snapshot.
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = Pruning old snapper pre/post snapshots...
+When = PostTransaction
+Depends = snapper
+Exec = /usr/bin/snapper --no-dbus -c root cleanup number

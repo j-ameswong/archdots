@@ -25,8 +25,12 @@ SRC_DIR="$SCRIPT_DIR/etc"
 # "<path relative to etc/>:<mode to install with>"
 FILES=(
     "pacman.d/hooks/99-secureboot-sign.hook:0644"
+    "pacman.d/hooks/zzz-snapper-cleanup.hook:0644"
     "snap-pac.ini:0644"
     "snapper/configs/root:0640"
+    "systemd/system/snapper-timeline.timer.d/weekly.conf:0644"
+    "ly/config.ini:0644"
+    "ly/background.mp4:0644"
 )
 
 push() {
