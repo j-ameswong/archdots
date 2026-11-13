@@ -29,8 +29,6 @@ FILES=(
     "snap-pac.ini:0644"
     "snapper/configs/root:0640"
     "systemd/system/snapper-timeline.timer.d/weekly.conf:0644"
-    "ly/config.ini:0644"
-    "ly/background.mp4:0644"
 )
 
 push() {
